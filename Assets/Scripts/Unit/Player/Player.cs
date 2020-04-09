@@ -10,9 +10,11 @@ namespace SG.Unit
     {
         [SerializeField] public PlayerUnitState unitState;
         private PlayerMovement _move;
+        private UnitCombat _combat;
 
         [HideInInspector]
-        public Vector2 Movement { get; set; }
+        public Vector2 InputMovement { get; set; }
+        public float InputAttack { get; set; }
 
         public float WalkingSpeed { get; private set; }
         public bool FacingRight { get; set; }
@@ -23,6 +25,7 @@ namespace SG.Unit
         private void Awake()
         {
             _move = GetComponent<PlayerMovement>();
+            _combat = GetComponentInChildren<UnitCombat>();
         }
 
         private void Start()
@@ -50,20 +53,29 @@ namespace SG.Unit
             _move.ShouldMove();
         }
 
-        private void OnMove(InputValue value)
-        {
-            Movement = value.Get<Vector2>();
-        }
-
-
         public void Attack()
         {
-            throw new NotImplementedException();
+            _combat.Attack();
         }
 
         public void Dead()
         {
             IsDead = true;
         }
+
+        #region Input System
+
+        private void OnMove(InputValue value)
+        {
+            InputMovement = value.Get<Vector2>();
+        }
+
+        private void OnAttack(InputValue value)
+        {
+            if (value.Get<float>() > 0)
+                Attack();
+        }
+        #endregion
+
     }
 }

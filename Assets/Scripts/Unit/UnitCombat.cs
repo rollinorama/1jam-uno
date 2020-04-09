@@ -6,17 +6,23 @@ namespace SG.Unit
     {
         [SerializeField] LayerMask enemyLayers;
         [SerializeField] float _attackRange;
+        [SerializeField] float _shakeDuration = 0.3f;
+        [SerializeField] float _shakeIntensity = 0.9f;
 
         private IUnit _unit;
+        private MainCamera _camera;
 
         private void Awake()
         {
             _unit = GetComponentInParent<IUnit>();
+            _camera = FindObjectOfType<MainCamera>();
         }
 
         public void TakeDamage(float damageTaken)
         {
             _unit.Health -= damageTaken;
+            _camera.ShakeCamera(_shakeDuration, _shakeIntensity);
+            Debug.Log("TakeDamage " + _unit.Health);
             if (_unit.Health <= 0)
             {
                 Die();
@@ -40,7 +46,7 @@ namespace SG.Unit
         }
 
 
-        private void OnDrawGizmosSeleted()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.DrawWireSphere(transform.position, _attackRange);
         }

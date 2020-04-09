@@ -29,10 +29,14 @@ namespace SG.Unit
         public float Damage { get; set; }
         public bool IsDead { get; set; } = false;
 
+        //TEMP
+        private SpriteRenderer _sprite;
+
         private void Awake()
         {
             _unitPath = GetComponent<EnemyUnitPath>();
-            _combat = GetComponent<UnitCombat>();
+            _combat = GetComponentInChildren<UnitCombat>();
+            _sprite = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
@@ -61,7 +65,7 @@ namespace SG.Unit
 
         public void EnemyPatrol()
         {
-            if (_waitToWalk) return;
+            if (_waitToWalk || IsDead) return;
          
             if (Vector2.Distance(transform.position, _actualWaypoint.position) < 0.5f)
             {
@@ -76,6 +80,8 @@ namespace SG.Unit
 
         public void EnemyChase(Transform target, bool rePath)
         {
+            if (IsDead) return;
+
             SetMove(target, 1, rePath);
             Rotate(target);
         }
@@ -135,6 +141,8 @@ namespace SG.Unit
 
         public void EnemyAttack(Transform target)
         {
+            if (IsDead) return;
+
             _combat.Attack();
             Rotate(target);
         }
@@ -154,6 +162,7 @@ namespace SG.Unit
         public void Dead()
         {
             IsDead = true;
+            _sprite.color = Color.green;
         }
 
     }

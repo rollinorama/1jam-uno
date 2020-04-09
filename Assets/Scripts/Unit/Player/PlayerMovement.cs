@@ -27,21 +27,21 @@ namespace SG.Unit
 
         private void Move()
         {
-            transform.Translate(_unit.Movement * _unit.WalkingSpeed * Time.deltaTime, Space.World);
+            transform.Translate(_unit.InputMovement * _unit.WalkingSpeed * Time.deltaTime, Space.World);
         }
 
         private void Rotate()
         {
-            if (_unit.Movement.x != 0 || _unit.Movement.y != 0)
+            if (_unit.InputMovement.x != 0 || _unit.InputMovement.y != 0)
             {
-                Quaternion rotation = Quaternion.LookRotation(Vector3.back, _unit.Movement);
+                Quaternion rotation = Quaternion.LookRotation(Vector3.back, _unit.InputMovement);
                 transform.rotation = rotation;
             }
         }
 
         private void Animation()
         {
-            if (_unit.Movement.x == 0 && _unit.Movement.y == 0)
+            if (_unit.InputMovement.x == 0 && _unit.InputMovement.y == 0)
                 _animator.SetBool("isWalking", false);
             else
                 _animator.SetBool("isWalking", true);
@@ -49,12 +49,12 @@ namespace SG.Unit
 
         private void Flip()
         {
-            if (_unit.Movement.x < 0 && _unit.FacingRight)
+            if (_unit.InputMovement.x < 0 && _unit.FacingRight)
             {
                 transform.GetChild(0).localScale = new Vector2(1f, transform.localScale.y);
                 _unit.FacingRight = true;
             }
-            else if (_unit.Movement.x > 0 && !_unit.FacingRight)
+            else if (_unit.InputMovement.x > 0 && !_unit.FacingRight)
             {
                 transform.GetChild(0).localScale = new Vector2(-1f, transform.localScale.y);
                 _unit.FacingRight = false;
