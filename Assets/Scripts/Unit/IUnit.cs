@@ -4,6 +4,7 @@
     {
         float Health { get; set; }
         float Damage { get; set; }
+        bool IsDead { get; set; }
 
         void Init();
         void Move();

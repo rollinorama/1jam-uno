@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace SG.Unit
 {
     public class UnitCombat : MonoBehaviour
     {
+        public event Action DeathEvent;
+
         [SerializeField] LayerMask enemyLayers;
         [SerializeField] float _attackRange;
         [SerializeField] float _shakeDuration = 0.3f;
@@ -23,13 +26,13 @@ namespace SG.Unit
             _unit.Health -= damageTaken;
             _camera.ShakeCamera(_shakeDuration, _shakeIntensity);
             Debug.Log("TakeDamage " + _unit.Health);
-            if (_unit.Health <= 0)
+            if (_unit.Health <= 0 && DeathEvent != null)
             {
-                Die();
+                DeathEvent();
             }
         }
 
-        public void Attack()
+        public void ShouldAttack()
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _attackRange, enemyLayers);
 
@@ -38,13 +41,6 @@ namespace SG.Unit
                 enemy.GetComponentInChildren<UnitCombat>().TakeDamage(_unit.Damage);
             }
         }
-
-        private void Die()
-        {
-
-            _unit.Dead();
-        }
-
 
         private void OnDrawGizmosSelected()
         {

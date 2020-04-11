@@ -274,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   _attackRange: 3
   _shakeDuration: 0.07
   _shakeIntensity: 0.3
@@ -343,7 +343,7 @@ MonoBehaviour:
   _unwalkableMask:
     serializedVersion: 2
     m_Bits: 256
-  _gridWorldSize: {x: 30, y: 16.87}
+  _gridWorldSize: {x: 60, y: 33.75}
   _nodeRadius: 0.25
   _unwalkableBorder: 0
 --- !u!4 &322406270
@@ -674,7 +674,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.43755
+  orthographic size: 16.8751
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -992,7 +992,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1466628703}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &904396962
 MonoBehaviour:
@@ -1009,9 +1009,59 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
-  _attackRange: 1.5
+  _attackRange: 1.53
   _shakeDuration: 0.8
   _shakeIntensity: 1
+--- !u!1 &1085656304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1085656305}
+  - component: {fileID: 1085656306}
+  m_Layer: 10
+  m_Name: Animator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1085656305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085656304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1466628703}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1085656306
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085656304}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1160878992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   _attackRange: 3
   _shakeDuration: 0.07
   _shakeIntensity: 0.3
@@ -1534,6 +1584,7 @@ GameObject:
   - component: {fileID: 1466628709}
   - component: {fileID: 1466628706}
   - component: {fileID: 1466628705}
+  - component: {fileID: 1466628708}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -1602,6 +1653,7 @@ Transform:
   m_LocalPosition: {x: -11.84, y: 1.98, z: 0}
   m_LocalScale: {x: 7.36727, y: 7.36727, z: 7.36727}
   m_Children:
+  - {fileID: 1085656305}
   - {fileID: 188649758}
   - {fileID: 904396961}
   m_Father: {fileID: 0}
@@ -1684,6 +1736,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1466628708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466628701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ebed03c5a32414698a0a48670ea7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  _checkGrabTime: 0.6
+  _grabRange: 1.28
 --- !u!58 &1466628709
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2056,7 +2125,7 @@ PrefabInstance:
     - target: {fileID: 258374878665692904, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 258374878665692904, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}

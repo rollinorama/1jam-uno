@@ -8,13 +8,15 @@ namespace SG.Unit
 {
     public class Player : MonoBehaviour, IUnit
     {
+
         [SerializeField] public PlayerUnitState unitState;
+
         private PlayerMovement _move;
         private UnitCombat _combat;
+        private UnitGrab _grab;
 
         [HideInInspector]
         public Vector2 InputMovement { get; set; }
-        public float InputAttack { get; set; }
 
         public float WalkingSpeed { get; private set; }
         public bool FacingRight { get; set; }
@@ -26,6 +28,8 @@ namespace SG.Unit
         {
             _move = GetComponent<PlayerMovement>();
             _combat = GetComponentInChildren<UnitCombat>();
+            _grab = GetComponent<UnitGrab>();
+            _combat.DeathEvent += Dead;
         }
 
         private void Start()
@@ -43,38 +47,58 @@ namespace SG.Unit
 
         private void FixedUpdate()
         {
-            Move();
+           Move();
         }
 
         public void Move()
         {
-            if (IsDead) return;
 
             _move.ShouldMove();
         }
 
         public void Attack()
         {
-            _combat.Attack();
+            _combat.ShouldAttack();
+        }
+
+        private void Grab()
+        {
+            _grab.ShouldGrab();
         }
 
         public void Dead()
         {
             IsDead = true;
+
+            _combat.DeathEvent -= Dead;
         }
 
         #region Input System
 
         private void OnMove(InputValue value)
         {
+            if (IsDead) return;
+
             InputMovement = value.Get<Vector2>();
         }
 
         private void OnAttack(InputValue value)
         {
+            if (IsDead) return;
+
             if (value.Get<float>() > 0)
                 Attack();
         }
+
+        private void OnGrab(InputValue value)
+        {
+            if (IsDead) return;
+
+            if (value.Get<float>() > 0)
+                Grab();
+        }
+
+        
         #endregion
 
     }

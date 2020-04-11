@@ -10,6 +10,7 @@ namespace SG.Unit
         [SerializeField] EnemyUnitState _unitState;
         [SerializeField] List<Transform> _waypoints;
 
+
         private EnemyUnitPath _unitPath;
         private UnitCombat _combat;
 
@@ -37,6 +38,7 @@ namespace SG.Unit
             _unitPath = GetComponent<EnemyUnitPath>();
             _combat = GetComponentInChildren<UnitCombat>();
             _sprite = GetComponent<SpriteRenderer>();
+            _combat.DeathEvent += Dead;
         }
 
         private void Start()
@@ -66,10 +68,10 @@ namespace SG.Unit
         public void EnemyPatrol()
         {
             if (_waitToWalk || IsDead) return;
-         
+
             if (Vector2.Distance(transform.position, _actualWaypoint.position) < 0.5f)
             {
-               StartCoroutine("Co_IdlePatrol");
+                StartCoroutine("Co_IdlePatrol");
             }
             else
             {
@@ -143,7 +145,7 @@ namespace SG.Unit
         {
             if (IsDead) return;
 
-            _combat.Attack();
+            _combat.ShouldAttack();
             Rotate(target);
         }
 
@@ -163,6 +165,8 @@ namespace SG.Unit
         {
             IsDead = true;
             _sprite.color = Color.green;
+
+            _combat.DeathEvent -= Dead;
         }
 
     }
