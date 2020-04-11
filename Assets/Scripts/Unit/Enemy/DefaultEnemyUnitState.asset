@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e723176d376e004484e9e15e6e3c236, type: 3}
   m_Name: DefaultEnemyUnitState
   m_EditorClassIdentifier: 
-  _walkingSpeed: 9
-  _walkingSpeedChase: 9
+  _walkingSpeed: 15.78
+  _walkingSpeedChase: 18.5
   _facingRight: 0
   _idleTime: 2
   _health: 1

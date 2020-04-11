@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - GrabbedEnemy
+  - Base
+  - Walls
   layers:
   - Default
   - TransparentFX
@@ -41,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Base
+    uniqueID: 4210684879
+    locked: 0
+  - name: Walls
+    uniqueID: 2102928869
+    locked: 0
+  - name: Characters
+    uniqueID: 520881905
+    locked: 0
+  - name: Top Base
+    uniqueID: 824686137
     locked: 0

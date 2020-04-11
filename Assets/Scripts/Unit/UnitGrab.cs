@@ -72,6 +72,7 @@ namespace SG.Unit
             _enemyGrabbed = CheckNearestEnemy();
             _enemyGrabbed.SetActive(false);
             _isEnemyGrabbed = true;
+            _animator.SetBool("isGrabbing", _isEnemyGrabbed);
             _enemiesGrabbable.Clear();
             StopCoroutine(Co_CheckGrab());
         }
@@ -81,7 +82,8 @@ namespace SG.Unit
             _enemyGrabbed.transform.position = transform.position;
             _enemyGrabbed.SetActive(true);
             _isEnemyGrabbed = false;
-            _enemyGrabbed = new GameObject();
+            _animator.SetBool("isGrabbing", _isEnemyGrabbed);
+            _enemyGrabbed.GetComponentInChildren<Animator>().SetBool("isDead", true);
             StartCoroutine(Co_CheckGrab());
         }
 

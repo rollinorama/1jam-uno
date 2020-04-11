@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
+
 
 namespace SG.Unit
 {
@@ -9,20 +11,22 @@ namespace SG.Unit
     {
         private Player _unit;
         private Animator _animator;
+        private Light2D _light2D;
 
 
         private void Awake()
         {
             _unit = GetComponent<Player>();
-            _animator = GetComponent<Animator>();
+            _animator = GetComponentInChildren<Animator>();
+            _light2D = GetComponentInChildren<Light2D>();
         }
 
         public void ShouldMove()
         {
             Move();
             Rotate();
-            //Animation();
-            //Flip();
+            Animation();
+            Flip();
         }
 
         private void Move()
@@ -34,8 +38,8 @@ namespace SG.Unit
         {
             if (_unit.InputMovement.x != 0 || _unit.InputMovement.y != 0)
             {
-                Quaternion rotation = Quaternion.LookRotation(Vector3.back, _unit.InputMovement);
-                transform.rotation = rotation;
+                 Quaternion rotation = Quaternion.LookRotation(Vector3.back, _unit.InputMovement);
+                _light2D.transform.rotation = rotation;
             }
         }
 
@@ -51,13 +55,13 @@ namespace SG.Unit
         {
             if (_unit.InputMovement.x < 0 && _unit.FacingRight)
             {
-                transform.GetChild(0).localScale = new Vector2(1f, transform.localScale.y);
-                _unit.FacingRight = true;
+                transform.GetChild(0).localScale = new Vector2(-1f, transform.localScale.y);
+                _unit.FacingRight = false;
             }
             else if (_unit.InputMovement.x > 0 && !_unit.FacingRight)
             {
-                transform.GetChild(0).localScale = new Vector2(-1f, transform.localScale.y);
-                _unit.FacingRight = false;
+                transform.GetChild(0).localScale = new Vector2(1f, transform.localScale.y);
+                _unit.FacingRight = true;
             }
         }
     }

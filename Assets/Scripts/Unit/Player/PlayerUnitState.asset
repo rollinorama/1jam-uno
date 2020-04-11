@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078d84ffc9ba44544996d9dfb08ca817, type: 3}
   m_Name: PlayerUnitState
   m_EditorClassIdentifier: 
-  _walkingSpeed: 9
+  _walkingSpeed: 14.15
   _facingRight: 0
   _health: 3
   _damage: 1

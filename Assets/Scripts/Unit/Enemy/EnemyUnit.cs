@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 namespace SG.Unit
 {
@@ -13,6 +14,8 @@ namespace SG.Unit
 
         private EnemyUnitPath _unitPath;
         private UnitCombat _combat;
+        private Animator _animator;
+        private Light2D _light2D;
 
         //Patrol Behaviour Vars
         private Transform _actualWaypoint;
@@ -38,6 +41,8 @@ namespace SG.Unit
             _unitPath = GetComponent<EnemyUnitPath>();
             _combat = GetComponentInChildren<UnitCombat>();
             _sprite = GetComponent<SpriteRenderer>();
+            _animator = GetComponentInChildren<Animator>();
+            _light2D = GetComponentInChildren<Light2D>();
             _combat.DeathEvent += Dead;
         }
 
@@ -71,6 +76,7 @@ namespace SG.Unit
 
             if (Vector2.Distance(transform.position, _actualWaypoint.position) < 0.5f)
             {
+                _animator.SetBool("isWalking", false);
                 StartCoroutine("Co_IdlePatrol");
             }
             else
@@ -94,6 +100,7 @@ namespace SG.Unit
             if (!_isWalkingToPath)
             {
                 _isWalkingToPath = true;
+                _animator.SetBool("isWalking", true);
                 _unitPath.RequestPath(target, _walkingSpeed);
             }
         }
@@ -137,8 +144,10 @@ namespace SG.Unit
         private void Rotate(Transform target)
         {
             Vector2 direction = transform.position - target.position;
+            print(direction.x);
             float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, rotationZ + 90);
+            _light2D. transform.rotation = Quaternion.Euler(0f, 0f, rotationZ + 90);
+            Flip(direction.x);
         }
 
         public void EnemyAttack(Transform target)
@@ -164,9 +173,26 @@ namespace SG.Unit
         public void Dead()
         {
             IsDead = true;
+            _animator.SetBool("isDead", IsDead);
+            _light2D.enabled = false;
             _sprite.color = Color.green;
 
             _combat.DeathEvent -= Dead;
+        }
+
+        //REFATORAR!!!!
+        private void Flip(float directionX)
+        {
+            if (directionX < 0 && FacingRight)
+            {
+                transform.GetChild(0).localScale = new Vector2(1f, transform.localScale.y);
+                FacingRight = false;
+            }
+            else if (directionX > 0 && !FacingRight)
+            {
+                transform.GetChild(0).localScale = new Vector2(-1f, transform.localScale.y);
+               FacingRight = true;
+            }
         }
 
     }
