@@ -2,18 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using SG.DateSim;
 
 namespace SG.Unit
 {
     public class Player : MonoBehaviour, IUnit
     {
-
         [SerializeField] public PlayerUnitState unitState;
 
         private PlayerMovement _move;
         private UnitCombat _combat;
         private UnitGrab _grab;
+        private UnitNoise _noise;
+        private CellPhone _cellPhone;
 
         [HideInInspector]
         public Vector2 InputMovement { get; set; }
@@ -29,6 +30,10 @@ namespace SG.Unit
             _move = GetComponent<PlayerMovement>();
             _combat = GetComponentInChildren<UnitCombat>();
             _grab = GetComponent<UnitGrab>();
+            _noise = GetComponentInChildren<UnitNoise>();
+            _cellPhone = FindObjectOfType<CellPhone>();
+
+            _cellPhone.RingEvent += MakeNoise;
             _combat.DeathEvent += Dead;
         }
 
@@ -52,7 +57,6 @@ namespace SG.Unit
 
         public void Move()
         {
-
             _move.ShouldMove();
         }
 
@@ -61,9 +65,19 @@ namespace SG.Unit
             _combat.ShouldAttack();
         }
 
-        private void Grab()
+        public void Grab()
         {
             _grab.ShouldGrab();
+        }
+
+        public void OpenClosePhone()
+        {
+            _cellPhone.OpenClosePhone();
+        }
+
+        public void MakeNoise()
+        {
+            _noise.Pulse();
         }
 
         public void Dead()
@@ -72,34 +86,5 @@ namespace SG.Unit
 
             _combat.DeathEvent -= Dead;
         }
-
-        #region Input System
-
-        private void OnMove(InputValue value)
-        {
-            if (IsDead) return;
-
-            InputMovement = value.Get<Vector2>();
-        }
-
-        private void OnAttack(InputValue value)
-        {
-            if (IsDead) return;
-
-            if (value.Get<float>() > 0)
-                Attack();
-        }
-
-        private void OnGrab(InputValue value)
-        {
-            if (IsDead) return;
-
-            if (value.Get<float>() > 0)
-                Grab();
-        }
-
-        
-        #endregion
-
     }
 }

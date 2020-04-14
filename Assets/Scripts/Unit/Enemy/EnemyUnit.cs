@@ -16,6 +16,7 @@ namespace SG.Unit
         private UnitCombat _combat;
         private Animator _animator;
         private Light2D _light2D;
+        private UnitNoise _noise;
 
         //Patrol Behaviour Vars
         private Transform _actualWaypoint;
@@ -43,7 +44,10 @@ namespace SG.Unit
             _sprite = GetComponent<SpriteRenderer>();
             _animator = GetComponentInChildren<Animator>();
             _light2D = GetComponentInChildren<Light2D>();
+
+            _noise = FindObjectOfType<UnitNoise>(); //Get Player component
             _combat.DeathEvent += Dead;
+            _noise.NoiseEvent += EnemyChase;
         }
 
         private void Start()
@@ -86,12 +90,14 @@ namespace SG.Unit
             }
         }
 
-        public void EnemyChase(Transform target, bool rePath)
+        public void EnemyChase(Transform target, bool rePath, bool fromAction = false)
         {
             if (IsDead) return;
 
             SetMove(target, 1, rePath);
             Rotate(target);
+            if (fromAction)
+                _noise.NoiseEvent -= EnemyChase;
         }
 
         public void SetMove(Transform target, int status, bool rePath = false)
@@ -144,9 +150,8 @@ namespace SG.Unit
         private void Rotate(Transform target)
         {
             Vector2 direction = transform.position - target.position;
-            print(direction.x);
             float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            _light2D. transform.rotation = Quaternion.Euler(0f, 0f, rotationZ + 90);
+            _light2D.transform.rotation = Quaternion.Euler(0f, 0f, rotationZ + 90);
             Flip(direction.x);
         }
 
@@ -191,7 +196,7 @@ namespace SG.Unit
             else if (directionX > 0 && !FacingRight)
             {
                 transform.GetChild(0).localScale = new Vector2(-1f, transform.localScale.y);
-               FacingRight = true;
+                FacingRight = true;
             }
         }
 

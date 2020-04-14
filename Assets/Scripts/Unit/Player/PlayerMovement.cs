@@ -13,7 +13,6 @@ namespace SG.Unit
         private Animator _animator;
         private Light2D _light2D;
 
-
         private void Awake()
         {
             _unit = GetComponent<Player>();

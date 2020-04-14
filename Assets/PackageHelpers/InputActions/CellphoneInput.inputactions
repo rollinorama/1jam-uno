@@ -1,0 +1,71 @@
+{
+    "name": "CellphoneInput",
+    "maps": [
+        {
+            "name": "MessageNavigation",
+            "id": "0ffff478-f44b-45a8-aaf2-b0c3616cd63b",
+            "actions": [
+                {
+                    "name": "NavigateLeft",
+                    "type": "Value",
+                    "id": "26c39a2b-06cf-4c7e-b389-d249da960caf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "NavigateRight",
+                    "type": "Button",
+                    "id": "4b5779cb-c97c-4e3a-8a2f-0e6e9f84baff",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Select",
+                    "type": "Value",
+                    "id": "07dbd7aa-2d54-4b21-b9e5-b8f15a49b422",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9ee317f7-2447-4c02-aafc-d9fb67d8b811",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NavigateLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c83a132-0b63-4aec-8f5b-91c86eb4441e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c779ec56-a8dd-4d30-b476-859229dd6eb8",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NavigateRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
