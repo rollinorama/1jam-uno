@@ -33,8 +33,6 @@ namespace SG.DateSim
                     {
                         _cellphone.SetRing();
                         _ringingWaypoints.Remove(_ringingWaypoints[i]);
-                        Debug.Log("message");
-
                     }
                 }
             }

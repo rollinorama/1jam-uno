@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 898058820575695322}
   - component: {fileID: 898058820575695316}
   - component: {fileID: 898058820575695323}
-  - component: {fileID: 898058820575695317}
   m_Layer: 5
   m_Name: Answer
   m_TagString: Untagged
@@ -75,22 +74,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &898058820575695317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898058820575695321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80cb8613a441cf948ae3e91f790f9624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  answerText: 
-  trueAnswerText: 
-  textPath: {fileID: 0}
-  messageActionType: 0
 --- !u!1 &898058821290504684
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +183,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -229,7 +212,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

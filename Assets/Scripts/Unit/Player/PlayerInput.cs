@@ -18,27 +18,17 @@ namespace SG.Unit
 
         private void OnMove(InputValue value)
         {
-            if (_player.IsDead) return;
+            if (_player.IsDead || _cellPhone.openedPhone) return;
 
-            if (_cellPhone.openedPhone)
-            {
-                _player.InputMovement = new Vector2(0, 0);
-                _cellPhone.InputNavigation = value.Get<Vector2>();
-            }
-            else
-                _player.InputMovement = value.Get<Vector2>();
-
+            _player.InputMovement = value.Get<Vector2>();
         }
 
         private void OnAttack(InputValue value)
         {
-            if (_player.IsDead) return;
+            if (_player.IsDead || _cellPhone.openedPhone) return;
 
             if (value.Get<float>() > 0)
-                if (_cellPhone.openedPhone)
-                    _cellPhone.SelectAnswer();
-                else
-                    _player.Attack();
+                _player.Attack();
         }
 
         private void OnGrab(InputValue value)

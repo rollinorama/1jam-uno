@@ -128,63 +128,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "AnswerSelect",
-            "id": "dcb30a05-9ee6-44b9-b9c7-e6f814f9630d",
-            "actions": [
-                {
-                    "name": "Navigate",
-                    "type": "Button",
-                    "id": "82d4c07a-1979-4955-9d0b-26c831863e7a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Select",
-                    "type": "Button",
-                    "id": "709f48f3-d5d5-4243-a051-82e0618fee1a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "5edf85c3-761a-413b-a682-0ae0016cdf55",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fd5817a6-4beb-493d-bd8f-18bd58864f8b",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a1a297ae-0f51-457a-b12a-cb4749fc568c",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": []
