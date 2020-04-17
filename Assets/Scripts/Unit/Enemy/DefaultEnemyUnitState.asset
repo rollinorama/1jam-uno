@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultEnemyUnitState
   m_EditorClassIdentifier: 
   _walkingSpeed: 15.78
-  _walkingSpeedChase: 18.5
+  _walkingSpeedChase: 25.28
   _facingRight: 0
   _idleTime: 2
   _health: 1

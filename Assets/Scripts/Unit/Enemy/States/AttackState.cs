@@ -15,12 +15,13 @@ namespace SG.StateMachine
         public override IEnumerator Start()
         {
             _target = EnemyStateMachine._fieldOfView.visibleTargets[0];
+            EnemyStateMachine.EnemyChase(_target);
             yield break;
         }
 
         public override void Update()
         {
-            if (EnemyStateMachine._fieldOfView.visibleTargets.Count > 0)
+            /*if (EnemyStateMachine._fieldOfView.visibleTargets.Count > 0)
             {
                 if (Vector2.Distance(EnemyStateMachine.transform.position, _target.position) < EnemyStateMachine._attackDistance)
                 {
@@ -34,7 +35,7 @@ namespace SG.StateMachine
             else if (!EnemyStateMachine.waitToPatrol)
             {
                 EnemyStateMachine.EnemyWaitToPatrol();
-            }
+            }*/
         }
 
     }

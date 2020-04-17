@@ -9,16 +9,10 @@ namespace SG.StateMachine
         {
         }
 
-        public override void Update()
+        public override IEnumerator Start()
         {
-            if (EnemyStateMachine._fieldOfView.visibleTargets.Count > 0)
-                EnemyStateMachine.SetState(new AttackState(EnemyStateMachine));
-            else if (EnemyStateMachine.isChasing)
-            {
-                EnemyStateMachine.isChasing = false;
-            }
+            yield return new WaitForSeconds(1f);
             EnemyStateMachine.EnemyPatrol();
         }
-
     }
 }

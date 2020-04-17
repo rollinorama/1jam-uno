@@ -22,7 +22,7 @@ public class MainCamera : MonoBehaviour
         _camera = GetComponent<Camera>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MoveCamera();
         if (_shakeDuration > 0)
@@ -31,7 +31,7 @@ public class MainCamera : MonoBehaviour
         }
     }
 
-    private void MoveCamera()
+    public void MoveCamera()
     {
         float newXpos = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref xVelocity, smoothTime, maxSpeed);
         float newYpos = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref yVelocity, smoothTime, maxSpeed);

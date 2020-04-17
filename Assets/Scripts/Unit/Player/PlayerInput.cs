@@ -2,7 +2,6 @@
 using UnityEngine.InputSystem;
 using SG.DateSim;
 
-
 namespace SG.Unit
 {
     public class PlayerInput : MonoBehaviour
@@ -45,6 +44,12 @@ namespace SG.Unit
 
             if (value.Get<float>() > 0)
                 _player.OpenClosePhone();
+        }
+
+        private void OnTeleport(InputValue value)
+        {
+            if (value.Get<float>() > 0)
+                _player.Teleport();
         }
     }
 }

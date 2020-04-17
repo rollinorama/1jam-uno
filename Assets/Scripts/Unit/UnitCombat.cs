@@ -9,6 +9,8 @@ namespace SG.Unit
 
         [SerializeField] LayerMask enemyLayers;
         [SerializeField] float _attackRange;
+        [SerializeField] float _attackLeftPosition;
+        [SerializeField] float _attackRightPosition;
         [SerializeField] float _shakeDuration = 0.3f;
         [SerializeField] float _shakeIntensity = 0.9f;
 
@@ -29,6 +31,7 @@ namespace SG.Unit
             _camera.ShakeCamera(_shakeDuration, _shakeIntensity);
             if (_unit.Health <= 0 && DeathEvent != null)
             {
+                _animator.SetBool("isDead", true);
                 DeathEvent();
             }
         }
@@ -36,7 +39,8 @@ namespace SG.Unit
         public void ShouldAttack()
         {
             _animator.SetTrigger("isAttacking");
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _attackRange, enemyLayers);
+            float positionX = _animator.transform.localScale.x > 0 ? transform.position.x + _attackRightPosition : transform.position.x + _attackLeftPosition;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(positionX, transform.position.y), _attackRange, enemyLayers);
 
             foreach (Collider2D enemy in colliders)
             {
@@ -46,7 +50,8 @@ namespace SG.Unit
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.DrawWireSphere(transform.position, _attackRange);
+            Gizmos.DrawWireSphere(new Vector2(transform.position.x + _attackRightPosition, transform.position.y), _attackRange);
+            Gizmos.DrawWireSphere(new Vector2(transform.position.x + _attackLeftPosition, transform.position.y), _attackRange);
         }
     }
 }

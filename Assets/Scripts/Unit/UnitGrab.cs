@@ -79,7 +79,7 @@ namespace SG.Unit
 
         private void Drop()
         {
-            _enemyGrabbed.transform.position = transform.position;
+            _enemyGrabbed.transform.position = new Vector2(transform.position.x, transform.position.y + 0.4f);
             _enemyGrabbed.SetActive(true);
             _isEnemyGrabbed = false;
             _animator.SetBool("isGrabbing", _isEnemyGrabbed);

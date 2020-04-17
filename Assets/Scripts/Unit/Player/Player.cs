@@ -9,11 +9,13 @@ namespace SG.Unit
     public class Player : MonoBehaviour, IUnit
     {
         [SerializeField] public PlayerUnitState unitState;
+        [SerializeField] public float generalRange;
 
         private PlayerMovement _move;
         private UnitCombat _combat;
         private UnitGrab _grab;
         private UnitNoise _noise;
+        private UnitTeleport _teleport;
         private CellPhone _cellPhone;
 
         [HideInInspector]
@@ -31,6 +33,7 @@ namespace SG.Unit
             _combat = GetComponentInChildren<UnitCombat>();
             _grab = GetComponent<UnitGrab>();
             _noise = GetComponentInChildren<UnitNoise>();
+            _teleport = GetComponent<UnitTeleport>();
             _cellPhone = FindObjectOfType<CellPhone>();
 
             _cellPhone.RingEvent += MakeNoise;
@@ -68,6 +71,11 @@ namespace SG.Unit
         public void Grab()
         {
             _grab.ShouldGrab();
+        }
+
+        public void Teleport()
+        {
+            _teleport.ShouldTeleport();
         }
 
         public void OpenClosePhone()

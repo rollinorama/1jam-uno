@@ -33,6 +33,14 @@
                     "name": "OpenPhone",
                     "type": "Button",
                     "id": "d8ac0507-7890-4350-853f-a68783f16bd6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Teleport",
+                    "type": "Value",
+                    "id": "366b3169-c9b1-40a6-bf12-5391ae110c07",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -124,6 +132,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenPhone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92b51c60-820f-40b8-86c7-1c014c00479d",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Teleport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

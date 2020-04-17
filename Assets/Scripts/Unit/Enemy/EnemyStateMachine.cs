@@ -9,7 +9,6 @@ namespace SG.StateMachine
     {
         #region Fields and props
         public float _waitToPatrolTime = 3f;
-        public float _attackDistance = 5f;
 
         //Cached references
         [HideInInspector]
@@ -32,7 +31,10 @@ namespace SG.StateMachine
 
         private void FixedUpdate()
         {
-            State.Update();
+            if (_fieldOfView.visibleTargets.Count > 0 && !isChasing)
+            {
+                SetState(new AttackState(this));
+            }
         }
         #endregion
 
@@ -53,7 +55,6 @@ namespace SG.StateMachine
 
         public void EnemyChase(Transform target)
         {
-
             if (!isChasing)
             {
                 isChasing = true;
@@ -72,27 +73,30 @@ namespace SG.StateMachine
             StartCoroutine("Co_WaitToPatrol", _waitToPatrolTime);
         }
 
+        public void ChaseAndAttack(Transform target)
+        {
+            StartCoroutine(Co_ChaseAndAttack(target, 0.4f));
+        }
+
+
         private IEnumerator Co_ChaseTime(Transform target, float delay)
         {
-            while (_fieldOfView.visibleTargets.Count > 0)
+            yield return new WaitForSeconds(delay);
+            if (_fieldOfView.visibleTargets.Count > 0)
+            {
+                StartCoroutine(Co_ChaseAndAttack(target, delay));
+            }
+        }
+
+        private IEnumerator Co_ChaseAndAttack(Transform target, float delay)
+        {
+            _enemyUnit.isPatrolling = false;
+            while (true)
             {
                 yield return new WaitForSeconds(delay);
-                _enemyUnit.EnemyChase(target, true);
+                _enemyUnit.EnemyAttack(target);
             }
         }
-
-        private IEnumerator Co_WaitToPatrol(float delay)
-        {
-            waitToPatrol = true;
-            yield return new WaitForSeconds(delay);
-            if (_fieldOfView.visibleTargets.Count == 0)
-            {
-                SetState(new PatrolState(this));
-            }
-            waitToPatrol = false;
-        }
-
-
         #endregion
     }
 }

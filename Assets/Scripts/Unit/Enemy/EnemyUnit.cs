@@ -10,6 +10,7 @@ namespace SG.Unit
     {
         [SerializeField] EnemyUnitState _unitState;
         [SerializeField] List<Transform> _waypoints;
+        [SerializeField] float _attackDistance = 5f;
 
 
         private EnemyUnitPath _unitPath;
@@ -19,12 +20,11 @@ namespace SG.Unit
         private UnitNoise _noise;
 
         //Patrol Behaviour Vars
+        private int _actualWaypointIndex = 0;
         private Transform _actualWaypoint;
         private bool _waitToWalk = false;
-        private bool _isWalkingToPath = false;
-        private Status _status = Status.Patrol;
+        private bool _isWalking = false;
         private float _walkingSpeed;
-        private Queue<Transform> _waypointQueue;
 
         public float WalkingSpeed { get; private set; }
         public float WalkingSpeedChase { get; private set; }
@@ -34,14 +34,12 @@ namespace SG.Unit
         public float Damage { get; set; }
         public bool IsDead { get; set; } = false;
 
-        //TEMP
-        private SpriteRenderer _sprite;
+        public bool isPatrolling;
 
         private void Awake()
         {
             _unitPath = GetComponent<EnemyUnitPath>();
             _combat = GetComponentInChildren<UnitCombat>();
-            _sprite = GetComponent<SpriteRenderer>();
             _animator = GetComponentInChildren<Animator>();
             _light2D = GetComponentInChildren<Light2D>();
 
@@ -59,7 +57,6 @@ namespace SG.Unit
         {
             InitStates();
             transform.position = _waypoints[0].position;
-            _waypointQueue = new Queue<Transform>(_waypoints);
             _walkingSpeed = WalkingSpeed;
             SetNextWaypoint();
         }
@@ -76,39 +73,54 @@ namespace SG.Unit
 
         public void EnemyPatrol()
         {
-            if (_waitToWalk || IsDead) return;
+            if (IsDead) return;
 
-            if (Vector2.Distance(transform.position, _actualWaypoint.position) < 0.5f)
-            {
-                _animator.SetBool("isWalking", false);
-                StartCoroutine("Co_IdlePatrol");
-            }
-            else
-            {
-                SetMove(_actualWaypoint, 0);
-                Rotate(_actualWaypoint);
-            }
+            isPatrolling = true;
+            StartCoroutine(Co_Patrol());
         }
 
-        public void EnemyChase(Transform target, bool rePath, bool fromAction = false)
+        private IEnumerator Co_Patrol()
+        {
+            while (isPatrolling)
+            {
+                yield return new WaitForSeconds(!_isWalking ? IdleTime : .3f);
+                if (_isWalking && Vector2.Distance(transform.position, _actualWaypoint.position) < 0.5f)
+                {
+                    _animator.SetBool("isWalking", false);
+                    SetNextWaypoint();
+                }
+                else if (!_isWalking)
+                {
+                    _isWalking = true;
+                    SetMove(_actualWaypoint, _walkingSpeed);
+                    Rotate(_actualWaypoint);
+                }
+            }
+            yield return null;
+        }
+
+        private void SetNextWaypoint()
+        {
+            _actualWaypointIndex = (_actualWaypointIndex + 1) % _waypoints.Count;
+            _isWalking = false;
+            _actualWaypoint = _waypoints[_actualWaypointIndex];
+
+        }
+
+        public void SetMove(Transform target, float walkingSpeed)
         {
             if (IsDead) return;
 
-            SetMove(target, 1, rePath);
-            Rotate(target);
-            if (fromAction)
-                _noise.NoiseEvent -= EnemyChase;
+            _animator.SetBool("isWalking", true);
+            _unitPath.RequestPath(target, walkingSpeed);
         }
 
-        public void SetMove(Transform target, int status, bool rePath = false)
+        private void Rotate(Transform target)
         {
-            CheckStatus(status, rePath);
-            if (!_isWalkingToPath)
-            {
-                _isWalkingToPath = true;
-                _animator.SetBool("isWalking", true);
-                _unitPath.RequestPath(target, _walkingSpeed);
-            }
+            Vector2 direction = target.position - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(Vector3.back, direction);
+            _light2D.transform.rotation = rotation;
+            Flip(direction.x);
         }
 
         public void Move()
@@ -116,58 +128,33 @@ namespace SG.Unit
 
         }
 
-        private void CheckStatus(int status, bool rePath)
+        //Remover depois!
+        public void EnemyChase(Transform target, bool rePath, bool fromAction = false)
         {
-            if (_status != (Status)status || rePath)
-            {
-                _isWalkingToPath = false;
-                _status = (Status)status;
-                _walkingSpeed = status != 0 ? WalkingSpeedChase : WalkingSpeed;
-                if (status != 0)
-                {
-                    StopCoroutine("Co_IdlePatrol");
-                }
-            }
-        }
+            if (IsDead) return;
 
-        private IEnumerator Co_IdlePatrol()
-        {
-            _waitToWalk = true;
-            yield return new WaitForSeconds(IdleTime);
-            SetNextWaypoint();
-            _waitToWalk = false;
-            _isWalkingToPath = false;
-        }
-
-        private void SetNextWaypoint()
-        {
-            _actualWaypoint = _waypointQueue.Dequeue();
-            _waypointQueue.Enqueue(_actualWaypoint);
-
-        }
-
-
-        private void Rotate(Transform target)
-        {
-            Vector2 direction = transform.position - target.position;
-            float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            _light2D.transform.rotation = Quaternion.Euler(0f, 0f, rotationZ + 90);
-            Flip(direction.x);
+            SetMove(target, _walkingSpeed);
+            Rotate(target);
+            if (fromAction)
+                _noise.NoiseEvent -= EnemyChase;
         }
 
         public void EnemyAttack(Transform target)
         {
             if (IsDead) return;
 
-            _combat.ShouldAttack();
-            Rotate(target);
-        }
+            if (Vector2.Distance(transform.position, target.position) < _attackDistance)
+            {
+                SetMove(target, _walkingSpeed);
+                _combat.ShouldAttack();
+                Rotate(target);
+            }
+            else
+            {
+                SetMove(target, _walkingSpeed);
+                Rotate(target);
+            }
 
-        private enum Status
-        {
-            Patrol,
-            Chase,
-            Attack
         }
 
         public void Attack()
@@ -178,9 +165,7 @@ namespace SG.Unit
         public void Dead()
         {
             IsDead = true;
-            _animator.SetBool("isDead", IsDead);
             _light2D.enabled = false;
-            _sprite.color = Color.green;
 
             _combat.DeathEvent -= Dead;
         }
