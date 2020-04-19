@@ -50,7 +50,7 @@ TagManager:
   - name: Walls
     uniqueID: 2102928869
     locked: 0
-  - name: Characters
+  - name: Main Objects
     uniqueID: 520881905
     locked: 0
   - name: Top Base
