@@ -6,7 +6,7 @@ namespace SG.Unit
 {
     public class UnitNoise : MonoBehaviour
     {
-        public event Action<Transform, bool, bool> NoiseEvent;
+        public event Action<Transform> NoiseEvent;
 
         [SerializeField] float _noiseRadius;
         [SerializeField] float _noiseTime;
@@ -48,7 +48,8 @@ namespace SG.Unit
             {
                 if(Physics2D.OverlapCircleAll(transform.position, _noiseRadius, _enemyMask).Length > 0)
                 {
-                    NoiseEvent(transform, false, true);
+                    Debug.Log(transform.parent.name);
+                    NoiseEvent(transform.parent);
                 }
             }
         }

@@ -94,7 +94,7 @@ namespace SG.Unit
 
             if (_fieldOfView.visibleTargets[0].CompareTag("Player")) // Refatorar
             {
-                _combat.ShouldAttack(); //PAREI AQUI!!!
+                _combat.Attack(_fieldOfView.visibleTargets[0], 1); // Refatorar 
             }
             else
             {

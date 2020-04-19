@@ -17,7 +17,6 @@ namespace SG.Unit
         private UnitCombat _combat;
         private Animator _animator;
         private Light2D _light2D;
-        private UnitNoise _noise;
 
         //Patrol Behaviour Vars
         private int _actualWaypointIndex = 0;
@@ -43,9 +42,8 @@ namespace SG.Unit
             _animator = GetComponentInChildren<Animator>();
             _light2D = GetComponentInChildren<Light2D>();
 
-            _noise = FindObjectOfType<UnitNoise>(); //Get Player component
+            
             _combat.DeathEvent += Dead;
-            _noise.NoiseEvent += EnemyChase;
         }
 
         private void Start()
@@ -126,17 +124,6 @@ namespace SG.Unit
         public void Move()
         {
 
-        }
-
-        //Remover depois!
-        public void EnemyChase(Transform target, bool rePath, bool fromAction = false)
-        {
-            if (IsDead) return;
-
-            SetMove(target, _walkingSpeed);
-            Rotate(target);
-            if (fromAction)
-                _noise.NoiseEvent -= EnemyChase;
         }
 
         public void EnemyAttack(Transform target)

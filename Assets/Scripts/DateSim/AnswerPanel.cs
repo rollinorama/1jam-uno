@@ -13,6 +13,8 @@ namespace SG.DateSim
         public event Action<Answer> SendMessage;
 
         [SerializeField] GameObject _answerPrefab;
+        [SerializeField] Sprite _selectedAnswerSprite;
+        [SerializeField] Sprite _unselectedAnswerSprite;
 
         private CellPhone _cellPhone;
 
@@ -36,9 +38,9 @@ namespace SG.DateSim
         {
             if (_answersGM.Count > 0)
             {
-                _answersGM[_selectedAnswerIndex].GetComponent<Image>().color = Color.red;
+                _answersGM[_selectedAnswerIndex].GetComponent<Image>().sprite = _unselectedAnswerSprite;
                 _selectedAnswerIndex = index;
-                _answersGM[_selectedAnswerIndex].GetComponent<Image>().color = Color.green;
+                _answersGM[_selectedAnswerIndex].GetComponent<Image>().sprite = _selectedAnswerSprite;
             }
         }
 
@@ -88,6 +90,7 @@ namespace SG.DateSim
             if (_cellPhone.openedPhone && _answers.Count > 0 && value.Get<float>() > 0)
             {
                 int idx = (_selectedAnswerIndex + 1) % _answers.Count;
+                Debug.Log(idx);
                 NavigateAnswer(idx);
             }
         }
@@ -97,7 +100,7 @@ namespace SG.DateSim
         {
             if (_cellPhone.openedPhone && value.Get<float>() > 0)
             {
-
+                Debug.Log("direita");
             }
         }
     }

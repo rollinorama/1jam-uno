@@ -55,7 +55,9 @@ namespace SG.Unit
 
         private void FixedUpdate()
         {
-           Move();
+            if (IsDead) return;
+
+            Move();
         }
 
         public void Move()

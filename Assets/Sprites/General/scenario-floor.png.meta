@@ -1,0 +1,326 @@
+fileFormatVersion: 2
+guid: 2513a56b03f175f44b18246f97698636
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4917059330636367060
+    second: scenario-floor_0
+  - first:
+      213: 7389239487706073923
+    second: scenario-floor_1
+  - first:
+      213: 2364569637881623154
+    second: scenario-floor_2
+  - first:
+      213: 8946023705696169808
+    second: scenario-floor_3
+  - first:
+      213: 4297030172194356421
+    second: scenario-floor_4
+  - first:
+      213: 241132069482402805
+    second: scenario-floor_5
+  - first:
+      213: -7249619774854550185
+    second: scenario-floor_0
+  - first:
+      213: 6824220440004311313
+    second: scenario-floor_1
+  - first:
+      213: -7276716661146978776
+    second: scenario-floor_2
+  - first:
+      213: 1798817273482940580
+    second: scenario-floor_3
+  - first:
+      213: 7514372284662409107
+    second: scenario-floor_4
+  - first:
+      213: -4022829567399641467
+    second: scenario-floor_5
+  - first:
+      213: 6602456423519456434
+    second: scenario-floor_6
+  - first:
+      213: 1710539742271706920
+    second: scenario-floor_7
+  - first:
+      213: -7211106878639483224
+    second: scenario-floor_8
+  - first:
+      213: -4416063553909635017
+    second: scenario-floor_9
+  - first:
+      213: 6837609000527747085
+    second: scenario-floor_10
+  - first:
+      213: -8098327824648251670
+    second: scenario-floor_11
+  - first:
+      213: -8317177731465295985
+    second: scenario-floor_12
+  - first:
+      213: 3149516035846765048
+    second: scenario-floor_13
+  - first:
+      213: -765060441366346882
+    second: scenario-floor_14
+  - first:
+      213: -8725122394722081646
+    second: scenario-floor_15
+  - first:
+      213: 2549813314771749668
+    second: scenario-floor_16
+  - first:
+      213: -3305942973344397824
+    second: scenario-floor_17
+  - first:
+      213: 5900615544386078287
+    second: scenario-floor_18
+  - first:
+      213: 5427252653598243875
+    second: scenario-floor_19
+  - first:
+      213: 118758114792951258
+    second: scenario-floor_20
+  - first:
+      213: 5520155035932835593
+    second: scenario-floor_21
+  - first:
+      213: -607247092897273754
+    second: scenario-floor_22
+  - first:
+      213: -6443190261129472856
+    second: scenario-floor_23
+  - first:
+      213: 3672615056461259111
+    second: scenario-floor_24
+  - first:
+      213: -3705860319742294636
+    second: scenario-floor_25
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 6
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: scenario-floor_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 241
+        width: 126
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75da523993d246b90800000000000000
+      internalID: -7249619774854550185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenario-floor_1
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 244
+        width: 161
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119ba6b755084be50800000000000000
+      internalID: 6824220440004311313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenario-floor_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 176
+        width: 134
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826fa2910c8e30b90800000000000000
+      internalID: -7276716661146978776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenario-floor_3
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 176
+        width: 72
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a099c997cea6f810800000000000000
+      internalID: 1798817273482940580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenario-floor_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 94
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 397e751b7c9684860800000000000000
+      internalID: 7514372284662409107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenario-floor_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 110
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58eb43382d90c28c0800000000000000
+      internalID: -4022829567399641467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

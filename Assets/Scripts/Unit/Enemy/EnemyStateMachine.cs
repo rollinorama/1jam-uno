@@ -18,6 +18,8 @@ namespace SG.StateMachine
         [HideInInspector]
         public bool waitToPatrol = false;
         private EnemyUnitPath _unitPath;
+        private UnitNoise _noise;
+        private IUnit _target;
 
         public bool isChasing = false;
 
@@ -45,6 +47,8 @@ namespace SG.StateMachine
             _unitPath = GetComponent<EnemyUnitPath>();
             _fieldOfView = GetComponentInChildren<UnitFieldOfView>();
             _enemyUnit = GetComponent<EnemyUnit>();
+            _noise = FindObjectOfType<UnitNoise>(); //Get Player component
+            _noise.NoiseEvent += SetChaseAndAttack;
             SetState(new StartState(this));
         }
 
@@ -60,17 +64,6 @@ namespace SG.StateMachine
                 isChasing = true;
                 StartCoroutine(Co_ChaseTime(target, 0.4f));
             }
-        }
-
-        public void EnemyAttack(Transform target)
-        {
-            _enemyUnit.EnemyAttack(target);
-        }
-
-
-        public void EnemyWaitToPatrol()
-        {
-            StartCoroutine("Co_WaitToPatrol", _waitToPatrolTime);
         }
 
         public void ChaseAndAttack(Transform target)
@@ -91,11 +84,19 @@ namespace SG.StateMachine
         private IEnumerator Co_ChaseAndAttack(Transform target, float delay)
         {
             _enemyUnit.isPatrolling = false;
-            while (true)
+            _target = target.GetComponent<IUnit>();
+            while (!_target.IsDead)
             {
                 yield return new WaitForSeconds(delay);
                 _enemyUnit.EnemyAttack(target);
             }
+            EnemyPatrol();
+        }
+
+        private void SetChaseAndAttack(Transform target)
+        {
+            StartCoroutine(Co_ChaseAndAttack(target, 0.4f));
+            _noise.NoiseEvent -= SetChaseAndAttack;
         }
         #endregion
     }
