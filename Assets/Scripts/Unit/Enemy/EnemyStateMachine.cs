@@ -62,7 +62,7 @@ namespace SG.StateMachine
             if (!isChasing)
             {
                 isChasing = true;
-                StartCoroutine(Co_ChaseTime(target, 0.4f));
+                StartCoroutine(Co_ChaseTime(target, 0.2f));
             }
         }
 
@@ -74,10 +74,15 @@ namespace SG.StateMachine
 
         private IEnumerator Co_ChaseTime(Transform target, float delay)
         {
+            _enemyUnit.Rotate(target);
             yield return new WaitForSeconds(delay);
             if (_fieldOfView.visibleTargets.Count > 0)
             {
                 StartCoroutine(Co_ChaseAndAttack(target, delay));
+            }
+            else
+            {
+                SetState(new PatrolState(this));
             }
         }
 

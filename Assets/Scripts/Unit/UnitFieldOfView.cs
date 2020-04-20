@@ -33,8 +33,8 @@ namespace SG.Unit
 
         private void SetLight2D()
         {
-            _light2D.pointLightInnerAngle = viewAngle;
-            _light2D.pointLightOuterAngle = viewAngle * 2;
+            _light2D.pointLightInnerAngle = viewAngle - 10;
+            _light2D.pointLightOuterAngle = viewAngle;
             _light2D.pointLightInnerRadius = viewRadius;
             _light2D.pointLightOuterRadius = viewRadius;
         }

@@ -113,7 +113,7 @@ namespace SG.Unit
             _unitPath.RequestPath(target, walkingSpeed);
         }
 
-        private void Rotate(Transform target)
+        public void Rotate(Transform target)
         {
             Vector2 direction = target.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(Vector3.back, direction);

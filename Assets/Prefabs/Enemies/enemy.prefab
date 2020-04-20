@@ -46,7 +46,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1024
-  _attackRange: 3
+  _attackRange: 3.81
   _attackLeftPosition: 0
   _attackRightPosition: 0
   _shakeDuration: 0.07
@@ -135,7 +135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitState: {fileID: 11400000, guid: fbc3b7c09f994a549b899a5566152033, type: 2}
   _waypoints:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -269,7 +268,7 @@ PrefabInstance:
     - target: {fileID: 258374878665692887, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 2102928869
+      value: 520881905
       objectReference: {fileID: 0}
     - target: {fileID: 258374878665692887, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
@@ -369,12 +368,12 @@ PrefabInstance:
     - target: {fileID: 258374878665692905, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
       propertyPath: viewRadius
-      value: 16.2
+      value: 17.05
       objectReference: {fileID: 0}
     - target: {fileID: 258374878665692905, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
       propertyPath: viewAngle
-      value: 45
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 258374878665692907, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
