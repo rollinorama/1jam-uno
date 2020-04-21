@@ -56,3 +56,6 @@ TagManager:
   - name: Top Base
     uniqueID: 824686137
     locked: 0
+  - name: Enemy
+    uniqueID: 3475786861
+    locked: 0
