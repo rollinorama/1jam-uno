@@ -17,9 +17,10 @@ namespace SG.Unit
 
         private void OnMove(InputValue value)
         {
-            if (_player.IsDead || _cellPhone.openedPhone) return;
-
-            _player.InputMovement = value.Get<Vector2>();
+            if (_player.IsDead || _cellPhone.openedPhone)
+                _player.InputMovement = Vector2.zero;
+            else
+                _player.InputMovement = value.Get<Vector2>();
         }
 
         private void OnAttack(InputValue value)

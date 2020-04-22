@@ -14,6 +14,7 @@ public class MainCamera : MonoBehaviour
     private float _shakeDuration;
     private float _shakeIntensity;
     private Vector3 _originalPos;
+    public bool cellPhoneOpen;
 
     private Camera _camera;
 
@@ -24,7 +25,10 @@ public class MainCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveCamera();
+        if (!cellPhoneOpen)
+        {
+            MoveCamera();
+        }
         if (_shakeDuration > 0)
         {
             ShakeCamera(_shakeDuration, _shakeIntensity);
@@ -50,5 +54,24 @@ public class MainCamera : MonoBehaviour
             _shakeDuration -= Time.deltaTime * 1f;
         }
 
+    }
+
+    public IEnumerator CellPhoneOpen()
+    {
+        cellPhoneOpen = true;
+        float newPos = transform.position.x + 10f;
+        float timer = 1f;
+        while (timer > 0)
+        {
+            float newXpos = Mathf.SmoothDamp(transform.position.x, newPos, ref xVelocity, smoothTime, maxSpeed / 2f);
+            transform.position = new Vector3(newXpos, transform.position.y, transform.position.z);
+            timer -= Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        yield return null;
+    }
+    public void CellPhoneClose()
+    {
+        cellPhoneOpen = false;
     }
 }

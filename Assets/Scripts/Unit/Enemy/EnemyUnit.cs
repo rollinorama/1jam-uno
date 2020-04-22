@@ -41,7 +41,6 @@ namespace SG.Unit
             _combat = GetComponentInChildren<UnitCombat>();
             _animator = GetComponentInChildren<Animator>();
             _light2D = GetComponentInChildren<Light2D>();
-
             
             _combat.DeathEvent += Dead;
         }
@@ -154,6 +153,7 @@ namespace SG.Unit
             IsDead = true;
             _light2D.enabled = false;
 
+            FindObjectOfType<GameManager>().EnemyDeath();
             _combat.DeathEvent -= Dead;
         }
 

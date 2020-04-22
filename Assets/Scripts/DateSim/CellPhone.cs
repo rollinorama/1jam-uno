@@ -15,15 +15,17 @@ namespace SG.DateSim
         [SerializeField] float _timeDelayRing;
         [SerializeField] float _closedPhonePosY;
         [SerializeField] float _openedPhonePosY;
+        [SerializeField] Animator _uiFog;
 
         private Answer _actualAnswer;
         private MessagesPanel _messagesBoard;
         [HideInInspector]
         public AnswerPanel _answersBoard;
-
+        private Animator _animator;
 
         private RectTransform _rectTransform;
-        private Animation _ringArrow;
+        private Transform _ringArrow;
+        private MainCamera _camera;
 
         public bool openedPhone;
 
@@ -32,11 +34,13 @@ namespace SG.DateSim
             _messagesBoard = GetComponentInChildren<MessagesPanel>();
             _answersBoard = GetComponentInChildren<AnswerPanel>();
 
-
+            _animator = GetComponent<Animator>();
             _rectTransform = GetComponent<RectTransform>();
-           
-            _ringArrow = transform.Find("RingArrow").GetComponent<Animation>();
+
+            _ringArrow = transform.Find("RingArrow");
             _actualAnswer = new Answer(initialAnswer);
+
+            _camera = FindObjectOfType<MainCamera>();
         }
 
         void Start()
@@ -57,10 +61,11 @@ namespace SG.DateSim
 
         private IEnumerator Co_SetRing()
         {
+            Animation ringArrowAnimation = _ringArrow.GetComponentInChildren<Animation>();
             _ringArrow.gameObject.SetActive(true);
-            _ringArrow.Play();
+            ringArrowAnimation.Play();
            yield return new WaitForSeconds(_timeDelayRing);
-            _ringArrow.Stop();
+            ringArrowAnimation.Stop();
             _ringArrow.gameObject.SetActive(false);
            Ring();
         }
@@ -75,15 +80,18 @@ namespace SG.DateSim
         {
             if (openedPhone)
             {
+                _camera.CellPhoneClose();
                 openedPhone = false;
-                _rectTransform.position = new Vector2(_rectTransform.position.x, _closedPhonePosY);
-                
+                _animator.SetTrigger("setClose");
+                _uiFog.SetTrigger("setClose");
             }
             else
             {
+                StartCoroutine(_camera.CellPhoneOpen());
                 openedPhone = true;
+                _animator.SetTrigger("setOpen");
+                _uiFog.SetTrigger("setOpen");
                 OpenEvent();
-                _rectTransform.position = new Vector2(_rectTransform.position.x, _openedPhonePosY);
             }
         }
 

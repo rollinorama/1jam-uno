@@ -16,6 +16,7 @@ namespace SG.DateSim
         [SerializeField] Sprite _selectedAnswerSprite;
         [SerializeField] Sprite _unselectedAnswerSprite;
 
+        private GameManager _gameManager;
         private CellPhone _cellPhone;
 
         private List<Answer> _answers = new List<Answer>();
@@ -24,6 +25,7 @@ namespace SG.DateSim
 
         private void Awake()
         {
+            _gameManager = FindObjectOfType<GameManager>();
             _cellPhone = GetComponentInParent<CellPhone>();
 
             _cellPhone.OpenEvent += NavigateToFirstAnswer;
@@ -46,6 +48,7 @@ namespace SG.DateSim
 
         public void SetAnswers(DateSimAnswer[] answers)
         {
+            ClearAnswers();
             foreach (DateSimAnswer answer in answers)
             {
                 _answers.Add(new Answer(answer));
@@ -60,6 +63,7 @@ namespace SG.DateSim
 
         private void SelectAnswer()
         {
+            _gameManager.SetAnswerType(_answers[_selectedAnswerIndex].goodAnswer);
             SendMessage(_answers[_selectedAnswerIndex]);
             ClearAnswers();
         }

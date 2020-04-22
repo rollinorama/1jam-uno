@@ -22,9 +22,11 @@ namespace SG.Unit
 
         public void ShouldMove()
         {
+            Animation();
+            if (_unit.InputMovement == Vector2.zero) return;
+
             Move();
             Rotate();
-            Animation();
             Flip();
         }
 

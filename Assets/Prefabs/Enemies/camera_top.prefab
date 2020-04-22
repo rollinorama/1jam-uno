@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6153470125164676278}
   - component: {fileID: 6153470125164676279}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: camera_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 520881905
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 407120229537470671, guid: 2a324c59cb81bf44e915bdb04b3739f7, type: 3}
+  m_Sprite: {fileID: 8987776600181922625, guid: 2a324c59cb81bf44e915bdb04b3739f7,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -211,6 +212,16 @@ PrefabInstance:
         type: 3}
       propertyPath: targetMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 258374878665692905, guid: d62f62a7ea420af4facdb439aafc4923,
+        type: 3}
+      propertyPath: viewRadius
+      value: 17.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 258374878665692905, guid: d62f62a7ea420af4facdb439aafc4923,
+        type: 3}
+      propertyPath: viewAngle
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 258374878665692907, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}

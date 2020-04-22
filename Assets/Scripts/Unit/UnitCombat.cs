@@ -51,7 +51,7 @@ namespace SG.Unit
         public void Attack(Transform enemy, float damage)
         {
             Debug.Log("Aqui", enemy);
-                enemy.GetComponentInChildren<UnitCombat>().TakeDamage(damage);
+            enemy.GetComponentInChildren<UnitCombat>().TakeDamage(damage);
         }
 
         private void OnDrawGizmosSelected()

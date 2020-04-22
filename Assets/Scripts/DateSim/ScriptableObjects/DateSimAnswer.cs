@@ -9,5 +9,6 @@ namespace SG.DateSim
         public string answerText;
         [TextArea(14, 10)] public string trueAnswerText;
         public DateSimText textPath;
+        public bool goodAnswer;
     }
 }

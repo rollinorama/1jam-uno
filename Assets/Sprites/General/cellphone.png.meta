@@ -17,6 +17,12 @@ TextureImporter:
   - first:
       213: -181225432709987595
     second: cellphone_4
+  - first:
+      213: 6056928698858915741
+    second: cellphone_0
+  - first:
+      213: 4263494618570849561
+    second: cellphone_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -60,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,19 +111,19 @@ TextureImporter:
       name: cellphone_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 20
-        width: 348
-        height: 467
+        x: 815
+        y: 0
+        width: 368
+        height: 582
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6526abd10a02d9240800000000000000
-      internalID: 4800028649912427094
+      spriteID: d97ca558f888e0450800000000000000
+      internalID: 6056928698858915741
       vertices: []
       indices: 
       edges: []
@@ -126,12 +132,12 @@ TextureImporter:
       name: cellphone_1
       rect:
         serializedVersion: 2
-        x: 420
-        y: 284
-        width: 315
-        height: 104
+        x: 529
+        y: 364
+        width: 260
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,13 +153,13 @@ TextureImporter:
       name: cellphone_2
       rect:
         serializedVersion: 2
-        x: 806
-        y: 173
-        width: 315
-        height: 104
+        x: 468
+        y: 243
+        width: 260
+        height: 98
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -168,12 +174,12 @@ TextureImporter:
       name: cellphone_3
       rect:
         serializedVersion: 2
-        x: 1184
-        y: 34
-        width: 154
-        height: 41
+        x: 460
+        y: 23
+        width: 165
+        height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +195,12 @@ TextureImporter:
       name: cellphone_4
       rect:
         serializedVersion: 2
-        x: 1341
-        y: 34
-        width: 154
-        height: 41
+        x: 637
+        y: 23
+        width: 165
+        height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,6 +208,27 @@ TextureImporter:
       bones: []
       spriteID: 5f20e0bdd682c7df0800000000000000
       internalID: -181225432709987595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cellphone_5
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 19
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d74b144c9fa2b30800000000000000
+      internalID: 4263494618570849561
       vertices: []
       indices: 
       edges: []

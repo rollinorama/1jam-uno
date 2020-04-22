@@ -8,9 +8,12 @@ namespace SG.Unit
 {
     public class Player : MonoBehaviour, IUnit
     {
+        public event Action<Transform> NoiseEvent;
+
         [SerializeField] public PlayerUnitState unitState;
         [SerializeField] public float generalRange;
 
+        private GameManager _gameManager;
         private PlayerMovement _move;
         private UnitCombat _combat;
         private UnitGrab _grab;
@@ -29,6 +32,8 @@ namespace SG.Unit
 
         private void Awake()
         {
+            _gameManager = FindObjectOfType<GameManager>();
+
             _move = GetComponent<PlayerMovement>();
             _combat = GetComponentInChildren<UnitCombat>();
             _grab = GetComponent<UnitGrab>();
@@ -59,6 +64,16 @@ namespace SG.Unit
 
             Move();
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("EndWaypoint"))
+            {
+                Debug.Log(other.name);
+                _gameManager.LoadNextScene();
+            }
+        }
+
 
         public void Move()
         {
@@ -94,6 +109,7 @@ namespace SG.Unit
         {
             IsDead = true;
 
+            _gameManager.PlayerDeath();
             _combat.DeathEvent -= Dead;
         }
     }
