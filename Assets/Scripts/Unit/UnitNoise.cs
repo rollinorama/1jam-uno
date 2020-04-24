@@ -48,7 +48,6 @@ namespace SG.Unit
             {
                 if(Physics2D.OverlapCircleAll(transform.position, _noiseRadius, _enemyMask).Length > 0)
                 {
-                    Debug.Log(transform.parent.name);
                     NoiseEvent(transform.parent);
                 }
             }

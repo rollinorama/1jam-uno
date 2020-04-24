@@ -66,9 +66,18 @@ namespace SG.StateMachine
             }
         }
 
-        public void ChaseAndAttack(Transform target)
+        public void ChaseAndAttack(Transform target, float delay = 0.4f)
         {
-            StartCoroutine(Co_ChaseAndAttack(target, 0.4f));
+            _enemyUnit.isPatrolling = false;
+            _target = target.GetComponent<IUnit>();
+            Transform _targetCollider = target.Find("WalkCollider");
+            StartCoroutine(Co_ChaseAndAttack(_targetCollider, delay)); //REFATORAR URGENTE!!!
+        }
+
+        public void AttackByAlarm(Transform target)
+        {
+            SetState(new AttackState(this));
+            ChaseAndAttack(target);
         }
 
 
@@ -78,7 +87,7 @@ namespace SG.StateMachine
             yield return new WaitForSeconds(delay);
             if (_fieldOfView.visibleTargets.Count > 0)
             {
-                StartCoroutine(Co_ChaseAndAttack(target, delay));
+                ChaseAndAttack(target, delay);
             }
             else
             {
@@ -88,8 +97,7 @@ namespace SG.StateMachine
 
         private IEnumerator Co_ChaseAndAttack(Transform target, float delay)
         {
-            _enemyUnit.isPatrolling = false;
-            _target = target.GetComponent<IUnit>();
+            
             while (!_target.IsDead)
             {
                 yield return new WaitForSeconds(delay);
@@ -100,7 +108,7 @@ namespace SG.StateMachine
 
         private void SetChaseAndAttack(Transform target)
         {
-            StartCoroutine(Co_ChaseAndAttack(target, 0.4f));
+            ChaseAndAttack(target, 0.4f);
             _noise.NoiseEvent -= SetChaseAndAttack;
         }
         #endregion

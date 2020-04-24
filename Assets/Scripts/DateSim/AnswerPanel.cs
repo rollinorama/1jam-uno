@@ -94,7 +94,6 @@ namespace SG.DateSim
             if (_cellPhone.openedPhone && _answers.Count > 0 && value.Get<float>() > 0)
             {
                 int idx = (_selectedAnswerIndex + 1) % _answers.Count;
-                Debug.Log(idx);
                 NavigateAnswer(idx);
             }
         }
@@ -104,7 +103,8 @@ namespace SG.DateSim
         {
             if (_cellPhone.openedPhone && value.Get<float>() > 0)
             {
-                Debug.Log("direita");
+                int idx = (_selectedAnswerIndex + 1) % _answers.Count;
+                NavigateAnswer(idx);
             }
         }
     }

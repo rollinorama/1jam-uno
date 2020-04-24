@@ -152,6 +152,7 @@ namespace SG.Unit
         {
             IsDead = true;
             _light2D.enabled = false;
+            gameObject.layer = 12;
 
             FindObjectOfType<GameManager>().EnemyDeath();
             _combat.DeathEvent -= Dead;

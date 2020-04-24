@@ -14,8 +14,11 @@ namespace SG.StateMachine
 
         public override IEnumerator Start()
         {
-            _target = EnemyStateMachine._fieldOfView.visibleTargets[0];
-            EnemyStateMachine.EnemyChase(_target);
+            if (EnemyStateMachine._fieldOfView.visibleTargets.Count > 0)
+            {
+                _target = EnemyStateMachine._fieldOfView.visibleTargets[0];
+                EnemyStateMachine.EnemyChase(_target);
+            }
             yield break;
         }
 

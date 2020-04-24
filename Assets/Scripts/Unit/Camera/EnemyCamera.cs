@@ -93,10 +93,11 @@ namespace SG.Unit
             
             if (_fieldOfView.visibleTargets[0].CompareTag("Player")) // Refatorar
             {
+                Debug.Log("SetCameraAction");
                 EnemyStateMachine[] enemies = FindObjectsOfType<EnemyStateMachine>();
                 foreach (EnemyStateMachine enemy in enemies)
                 {
-                    enemy.ChaseAndAttack(player);
+                    enemy.AttackByAlarm(player);
                 }
             }
             else

@@ -10,6 +10,7 @@ namespace SG.Unit
     {
         [SerializeField] LayerMask targetMask;
         [SerializeField] LayerMask obstacleMask;
+        [SerializeField] Transform _player;
 
         public float viewRadius;
         [Range(0, 360)] public float viewAngle;
@@ -28,7 +29,6 @@ namespace SG.Unit
         private void Start()
         {
             StartCoroutine("FindTargetsWithDelay", .2f);
-
         }
 
         private void SetLight2D()
@@ -62,7 +62,9 @@ namespace SG.Unit
 
                     if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                     {
-                        visibleTargets.Add(target);
+                        visibleTargets.Add(_player); //REFATORAR
+                                                     //Comentado para uma abordagem mais genérica dos targets
+                                                     //visibleTargets.Add(target);
                     }
                 }
             }

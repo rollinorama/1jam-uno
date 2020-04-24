@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 using SG.Unit;
 
 namespace SG
@@ -10,28 +11,39 @@ namespace SG
     public class GameManager : MonoBehaviour
     {
         [SerializeField] GameData _data;
+        [SerializeField] TextMeshProUGUI _levelName;
         [SerializeField] Transform _startWaypoint;
         [SerializeField] Transform _endWaypoint;
         [SerializeField] Animator _sceneTransition;
         [SerializeField] float _deathDelay;
 
         private Player _player;
-        private int _actualSceneIndex;
+        private Scene _actualScene;
 
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
-            _actualSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            _actualScene = SceneManager.GetActiveScene();
         }
 
         private void Start()
         {
             _player.transform.position = _startWaypoint.position;
+            _levelName.text = _actualScene.name.ToString();
+            if (_actualScene.buildIndex == 0 && _data.playerDeaths == 0)
+                _data.StartGame();
+            else
+                _data.StartScene();
+        }
+
+        private void Init()
+        {
+            
         }
 
         public void LoadNextScene()
         {
-            StartCoroutine(Co_LoadScene(_actualSceneIndex + 1));
+            StartCoroutine(Co_LoadScene(_actualScene.buildIndex + 1));
         }
 
         private IEnumerator Co_LoadScene(int sceneIndex)
@@ -45,7 +57,7 @@ namespace SG
         {
             _data.playerDeaths++;
             _data.RestartScene();
-            StartCoroutine(Co_LoadScene(_actualSceneIndex));
+            StartCoroutine(Co_LoadScene(_actualScene.buildIndex));
         }
         public void EnemyDeath()
         {
@@ -59,7 +71,6 @@ namespace SG
             else
                 _data.badGuyAnswers++;
         }
-
     }
 
 }
