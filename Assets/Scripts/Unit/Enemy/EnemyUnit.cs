@@ -11,6 +11,9 @@ namespace SG.Unit
         [SerializeField] EnemyUnitState _unitState;
         [SerializeField] List<Transform> _waypoints;
         [SerializeField] float _attackDistance = 5f;
+        [SerializeField] float _walkingSpeedIdle;
+        [SerializeField] float _walkingSpeedChase;
+        [SerializeField] float _idleTime;
 
 
         private EnemyUnitPath _unitPath;
@@ -23,11 +26,7 @@ namespace SG.Unit
         private Transform _actualWaypoint;
         private bool _waitToWalk = false;
         private bool _isWalking = false;
-        private float _walkingSpeed;
 
-        public float WalkingSpeed { get; private set; }
-        public float WalkingSpeedChase { get; private set; }
-        public float IdleTime { get; private set; }
         public bool FacingRight { get; set; }
         public float Health { get; set; }
         public float Damage { get; set; }
@@ -54,15 +53,11 @@ namespace SG.Unit
         {
             InitStates();
             transform.position = _waypoints[0].position;
-            _walkingSpeed = WalkingSpeed;
             SetNextWaypoint();
         }
 
         private void InitStates()
         {
-            WalkingSpeed = _unitState._walkingSpeed;
-            WalkingSpeedChase = _unitState._walkingSpeedChase;
-            IdleTime = _unitState._idleTime;
             FacingRight = _unitState._facingRight;
             Health = _unitState._health;
             Damage = _unitState._damage;
@@ -80,7 +75,7 @@ namespace SG.Unit
         {
             while (isPatrolling)
             {
-                yield return new WaitForSeconds(!_isWalking ? IdleTime : .3f);
+                yield return new WaitForSeconds(!_isWalking ? _idleTime : .3f);
                 if (_isWalking && Vector2.Distance(transform.position, _actualWaypoint.position) < 0.5f)
                 {
                     _animator.SetBool("isWalking", false);
@@ -89,7 +84,7 @@ namespace SG.Unit
                 else if (!_isWalking)
                 {
                     _isWalking = true;
-                    SetMove(_actualWaypoint, _walkingSpeed);
+                    SetMove(_actualWaypoint, _walkingSpeedIdle);
                     Rotate(_actualWaypoint);
                 }
             }
@@ -131,13 +126,13 @@ namespace SG.Unit
 
             if (Vector2.Distance(transform.position, target.position) < _attackDistance)
             {
-                SetMove(target, _walkingSpeed);
+                SetMove(target, _walkingSpeedChase);
                 _combat.ShouldAttack();
                 Rotate(target);
             }
             else
             {
-                SetMove(target, _walkingSpeed);
+                SetMove(target, _walkingSpeedChase);
                 Rotate(target);
             }
 

@@ -13,7 +13,6 @@ namespace SG
         [SerializeField] GameData _data;
         [SerializeField] TextMeshProUGUI _levelName;
         [SerializeField] Transform _startWaypoint;
-        [SerializeField] Transform _endWaypoint;
         [SerializeField] Animator _sceneTransition;
         [SerializeField] float _deathDelay;
 
@@ -38,12 +37,15 @@ namespace SG
 
         private void Init()
         {
-            
+
         }
 
-        public void LoadNextScene()
+        public void LoadNextScene(Transform endWaypoint)
         {
-            StartCoroutine(Co_LoadScene(_actualScene.buildIndex + 1));
+            if (endWaypoint.name == "EndWaypointBack")
+                StartCoroutine(Co_LoadScene(_actualScene.buildIndex));
+            else
+                StartCoroutine(Co_LoadScene(_actualScene.buildIndex + 1));
         }
 
         private IEnumerator Co_LoadScene(int sceneIndex)

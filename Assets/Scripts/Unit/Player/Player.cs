@@ -69,8 +69,7 @@ namespace SG.Unit
         {
             if (other.CompareTag("EndWaypoint"))
             {
-                Debug.Log(other.name);
-                _gameManager.LoadNextScene();
+                _gameManager.LoadNextScene(other.transform);
             }
         }
 

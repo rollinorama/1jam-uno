@@ -8,11 +8,13 @@ namespace SG.Unit
     {
         private Player _player;
         private CellPhone _cellPhone;
+        private UnitNoise _unitNoise;
 
         private void Awake()
         {
             _player = GetComponent<Player>();
             _cellPhone = FindObjectOfType<CellPhone>();
+            _unitNoise = GetComponentInChildren<UnitNoise>();
         }
 
         private void OnMove(InputValue value)
@@ -44,7 +46,10 @@ namespace SG.Unit
             if (_player.IsDead) return;
 
             if (value.Get<float>() > 0)
+            {
                 _player.OpenClosePhone();
+                _unitNoise.StopNoise();
+            }
         }
 
         private void OnTeleport(InputValue value)

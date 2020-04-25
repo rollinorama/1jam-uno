@@ -32,11 +32,20 @@ namespace SG.Unit
             StartCoroutine(Co_Pulse());
         }
 
+        public void StopNoise()
+        {
+            StopCoroutine(Co_Pulse());
+            var em = _noiseParticles.emission;
+            em.enabled = false;
+            _makingNoise = false;
+        }
+
         private IEnumerator Co_Pulse()
         {
             var em = _noiseParticles.emission;
             em.enabled = true;
             _makingNoise = true;
+            Debug.Log("NOISE!!");
             yield return new WaitForSeconds(_noiseTime);
             em.enabled = false;
             _makingNoise = false;

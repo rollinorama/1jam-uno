@@ -6,6 +6,7 @@ namespace SG.DateSim
     public class RingingManager : MonoBehaviour
     {
         [SerializeField] CellPhone _cellphone;
+        [SerializeField] DateSimText _dateSimText;
         [SerializeField] float _checkCollideTime;
 
         private bool loaded = false;
@@ -23,7 +24,7 @@ namespace SG.DateSim
         {
             loaded = true;
             yield return new WaitForSeconds(_checkCollideTime);
-            _cellphone.SetRing();
+            _cellphone.SetRing(_dateSimText);
             Destroy(gameObject);
         }
     }
