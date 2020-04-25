@@ -9,6 +9,8 @@ TagManager:
   - Walls
   - EndWaypoint
   - Enemy
+  - Sewer
+  - EnemyDead
   layers:
   - Default
   - TransparentFX

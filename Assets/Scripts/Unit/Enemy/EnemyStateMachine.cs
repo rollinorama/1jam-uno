@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using SG.Unit;
 
 namespace SG.StateMachine
@@ -17,9 +18,9 @@ namespace SG.StateMachine
         public UnitFieldOfView _fieldOfView;
         [HideInInspector]
         public bool waitToPatrol = false;
-        private EnemyUnitPath _unitPath;
         private UnitNoise _noise;
         private IUnit _target;
+        private Light2D _light2D;
 
         public bool isChasing = false;
 
@@ -44,8 +45,8 @@ namespace SG.StateMachine
 
         private void Init()
         {
-            _unitPath = GetComponent<EnemyUnitPath>();
             _fieldOfView = GetComponentInChildren<UnitFieldOfView>();
+            _light2D = GetComponentInChildren<Light2D>();
             _enemyUnit = GetComponent<EnemyUnit>();
             _noise = FindObjectOfType<UnitNoise>(); //Get Player component
             _noise.NoiseEvent += SetChaseAndAttack;
@@ -62,6 +63,7 @@ namespace SG.StateMachine
             if (!isChasing)
             {
                 isChasing = true;
+                _light2D.color = Color.yellow;
                 StartCoroutine(Co_ChaseTime(target, 0.2f));
             }
         }
@@ -87,6 +89,7 @@ namespace SG.StateMachine
             yield return new WaitForSeconds(delay);
             if (_fieldOfView.visibleTargets.Count > 0)
             {
+                _light2D.color = Color.red;
                 ChaseAndAttack(target, delay);
             }
             else
@@ -97,7 +100,6 @@ namespace SG.StateMachine
 
         private IEnumerator Co_ChaseAndAttack(Transform target, float delay)
         {
-            
             while (!_target.IsDead)
             {
                 yield return new WaitForSeconds(delay);

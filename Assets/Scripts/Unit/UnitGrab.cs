@@ -16,10 +16,12 @@ namespace SG.Unit
         private bool _isEnemyGrabbed = false;
         private List<Transform> _enemiesGrabbable = new List<Transform>();
         private GameObject _enemyGrabbed;
+        private PlayerUI _playerUI;
 
         private void Awake()
         {
             _animator = GetComponentInChildren<Animator>();
+            _playerUI = GetComponentInChildren<PlayerUI>();
         }
 
         private void Start()
@@ -43,15 +45,18 @@ namespace SG.Unit
             Collider2D[] _enemies = Physics2D.OverlapCircleAll(transform.position, _grabRange, enemyLayers);
             if (_enemies.Length > 0)
             {
+
                 foreach (Collider2D enemy in _enemies)
                 {
                     if (enemy.GetComponent<IUnit>().IsDead)
                         _enemiesGrabbable.Add(enemy.transform);
                 }
+                _playerUI.OpenUI("X", "Agarrar Corpo", PlayerUIButtonType.Grab);
             }
             else
             {
                 _enemiesGrabbable.Clear();
+                _playerUI.CloseUI(PlayerUIButtonType.Grab);
             }
         }
 

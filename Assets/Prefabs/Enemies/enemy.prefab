@@ -315,6 +315,21 @@ PrefabInstance:
       propertyPath: m_ShadowVolumeIntensity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 258374878665692887, guid: d62f62a7ea420af4facdb439aafc4923,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 258374878665692887, guid: d62f62a7ea420af4facdb439aafc4923,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 258374878665692887, guid: d62f62a7ea420af4facdb439aafc4923,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.9254902
+      objectReference: {fileID: 0}
     - target: {fileID: 258374878665692904, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -378,12 +393,12 @@ PrefabInstance:
     - target: {fileID: 258374878665692905, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
       propertyPath: viewRadius
-      value: 17.05
+      value: 18.5
       objectReference: {fileID: 0}
     - target: {fileID: 258374878665692905, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
       propertyPath: viewAngle
-      value: 100
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 258374878665692907, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}

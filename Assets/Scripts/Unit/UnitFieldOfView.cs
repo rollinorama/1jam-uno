@@ -35,7 +35,7 @@ namespace SG.Unit
         {
             _light2D.pointLightInnerAngle = viewAngle - 10;
             _light2D.pointLightOuterAngle = viewAngle;
-            _light2D.pointLightInnerRadius = viewRadius;
+            _light2D.pointLightInnerRadius = viewRadius - 4f;
             _light2D.pointLightOuterRadius = viewRadius;
         }
 
