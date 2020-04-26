@@ -776,7 +776,7 @@ MonoBehaviour:
   - {x: -0.30302238, y: -0.8073063, z: 0}
   m_ShapePathHash: 1583073461
   m_Mesh: {fileID: 0}
-  m_InstanceId: 18608
+  m_InstanceId: -85202
 --- !u!1 &1254173842841154736
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,8 +934,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16122055, y: -0.17017698}
-  m_Size: {x: 1.3598404, y: 4.994666}
+  m_Offset: {x: -0.16122055, y: -0.46039462}
+  m_Size: {x: 1.3598404, y: 5.724199}
   m_Direction: 0
 --- !u!114 &1254173842877061952
 MonoBehaviour:
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teleportLayers:
     serializedVersion: 2
-    m_Bits: 2560
+    m_Bits: 2048
   _teleportDelay: 1
   _teleportTime: 3
 --- !u!1 &1254173843416808297
@@ -1067,8 +1067,8 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254173843416808297}
   serializedVersion: 6
-  lengthInSec: 12.78
-  simulationSpeed: 0.74
+  lengthInSec: 12.2
+  simulationSpeed: 1.17
   stopAction: 1
   cullingMode: 0
   ringBufferMode: 0
@@ -1142,7 +1142,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.8
+      scalar: 1.66
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1892,7 +1892,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.74
+      scalar: 1.95
       minScalar: 10
       maxCurve:
         serializedVersion: 2

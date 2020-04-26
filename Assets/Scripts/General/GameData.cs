@@ -1,7 +1,6 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using SG.DateSim;
 
 namespace SG
 {
@@ -10,12 +9,12 @@ namespace SG
     {
         public int playerDeaths;
         public int enemyKills;
-        public List<DateSimText> texts;
+        public List<MessageText> texts;
         public int goodGuyAnswers;
         public int badGuyAnswers;
 
         private int _tempEnemyKills;
-        private List<DateSimText> _tempTexts;
+        private List<MessageText> _tempTexts;
         private int _tempGoodGuyAnswers;
         private int _tempBadGuyAnswers;
 
@@ -29,17 +28,38 @@ namespace SG
         public void StartScene()
         {
             _tempEnemyKills = enemyKills;
-            _tempTexts = texts;
+            _tempTexts = new List<MessageText>(texts);
             _tempGoodGuyAnswers = goodGuyAnswers;
             _tempBadGuyAnswers = badGuyAnswers;
         }
 
         public void RestartScene()
         {
+            Debug.Log(texts.Count);
+            Debug.Log(_tempTexts.Count);
             enemyKills = _tempEnemyKills;
-            texts = _tempTexts;
+            texts = new List<MessageText>(_tempTexts);
             goodGuyAnswers = _tempGoodGuyAnswers;
             badGuyAnswers = _tempBadGuyAnswers;
+        }
+    }
+
+    [Serializable]
+    public class MessageText
+    {
+        public string text;
+        public MessageType messageType;
+
+        public MessageText(string _text, MessageType _messageType)
+        {
+            text = _text;
+            messageType = _messageType;
+        }
+
+        public enum MessageType
+        {
+            sendedMessage,
+            receivedMessage,
         }
     }
 }

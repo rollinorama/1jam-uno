@@ -9,7 +9,6 @@ namespace SG.DateSim
         public string trueAnswerText;
         public bool goodAnswer;
         public DateSimText textPath;
-        public MessageActionType messageActionType;
 
         public Answer(DateSimAnswer answer)
         {
@@ -17,7 +16,6 @@ namespace SG.DateSim
             trueAnswerText = answer.trueAnswerText;
             goodAnswer = answer.goodAnswer;
             textPath = answer.textPath;
-            messageActionType = answer.textPath.messageActionType;
         }
 
         public void Action()

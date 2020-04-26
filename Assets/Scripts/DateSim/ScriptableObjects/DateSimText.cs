@@ -9,12 +9,7 @@ namespace SG.DateSim
     {
         [TextArea(14, 10)] public  string textMessage;
         public DateSimAnswer[] answers;
-        public MessageActionType messageActionType;
+
     }
-    public enum MessageActionType
-    {
-        AllEnemiesDefeated,
-        WaypointReach,
-        EnterLevel
-    }
+
 }

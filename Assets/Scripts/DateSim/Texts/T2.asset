@@ -13,7 +13,4 @@ MonoBehaviour:
   m_Name: T2
   m_EditorClassIdentifier: 
   textMessage: "\xC9 mesmo??? Ent\xE3o v\xE1 a merda"
-  answers:
-  - {fileID: 11400000, guid: b61cbb33f9392fa44817d1ffe4d2d222, type: 2}
-  - {fileID: 11400000, guid: 9c737c172361317428f24d1002c5d7be, type: 2}
-  messageActionType: 0
+  answers: []

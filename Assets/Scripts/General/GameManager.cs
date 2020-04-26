@@ -5,12 +5,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using SG.Unit;
+using SG.DateSim;
 
 namespace SG
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] GameData _data;
+        public Action<List<MessageText>> SetOldMessages;
+
+        [SerializeField] public GameData _data;
         [SerializeField] TextMeshProUGUI _levelName;
         [SerializeField] Transform _startWaypoint;
         [SerializeField] Animator _sceneTransition;
@@ -32,7 +35,10 @@ namespace SG
             if (_actualScene.buildIndex == 0 && _data.playerDeaths == 0)
                 _data.StartGame();
             else
+            {
                 _data.StartScene();
+                SetOldMessages(_data.texts);
+            }
         }
 
         private void Init()
@@ -72,6 +78,17 @@ namespace SG
                 _data.goodGuyAnswers++;
             else
                 _data.badGuyAnswers++;
+        }
+
+        public void AddText(String text, MessageText.MessageType messageType)
+        {
+            MessageText messageText = new MessageText(text, messageType);
+            _data.texts.Add(messageText);
+            for (int i = 0; i < _data.texts.Count; i++)
+            {
+                Debug.Log(_data.texts[i]);
+
+            }
         }
     }
 

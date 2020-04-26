@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f793d1fac13a0d45a7b1a38958d2065, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  playerDeaths: 0
-  enemyKills: 0
-  texts: []
+  playerDeaths: 8
+  enemyKills: 4
+  texts:
+  - text: "Bom dia flor do dia! Como vai meu pedacinho de algod\xE3o doce?"
+    messageType: 1
+  - text: "Ol\xE1 meu docinho de coco, como passou a noite? :)"
+    messageType: 0
+  - text: "\xC9 mesmo??? Ent\xE3o v\xE1 a merda"
+    messageType: 1
   goodGuyAnswers: 0
-  badGuyAnswers: 0
+  badGuyAnswers: 16

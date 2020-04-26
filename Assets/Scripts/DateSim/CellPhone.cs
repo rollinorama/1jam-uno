@@ -11,19 +11,15 @@ namespace SG.DateSim
         public event Action RingEvent;
         public event Action OpenEvent;
         
-        [SerializeField] DateSimAnswer initialAnswer;
         [SerializeField] float _timeDelayRing;
-        [SerializeField] float _closedPhonePosY;
-        [SerializeField] float _openedPhonePosY;
         [SerializeField] Animator _uiFog;
 
-        private Answer _actualAnswer;
+        private DateSimText _actualDateSimText;
         private MessagesPanel _messagesBoard;
         [HideInInspector]
         public AnswerPanel _answersBoard;
         private Animator _animator;
 
-        private RectTransform _rectTransform;
         private Transform _ringArrow;
         private MainCamera _camera;
 
@@ -33,29 +29,14 @@ namespace SG.DateSim
         {
             _messagesBoard = GetComponentInChildren<MessagesPanel>();
             _answersBoard = GetComponentInChildren<AnswerPanel>();
-
             _animator = GetComponent<Animator>();
-            _rectTransform = GetComponent<RectTransform>();
-
             _ringArrow = transform.Find("RingArrow");
-            _actualAnswer = new Answer(initialAnswer);
-
             _camera = FindObjectOfType<MainCamera>();
         }
 
-        void Start()
+        public void SetRing(DateSimText dateSimText)
         {
-            StartCoroutine(Co_ReceiveMessage());
-        }
-
-        IEnumerator Co_ReceiveMessage()
-        {
-            yield return new WaitForSeconds(3f);
-            _messagesBoard.ReceiveMessage();
-        }
-
-        public void SetRing()
-        {
+            _actualDateSimText = dateSimText;
             StartCoroutine(Co_SetRing());
         }
 
@@ -73,7 +54,7 @@ namespace SG.DateSim
         private void Ring()
         {
             RingEvent();
-            _messagesBoard.ReceiveMessage();
+            _messagesBoard.ReceiveMessage(_actualDateSimText);
         }
 
         public void OpenClosePhone()
