@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Hall.unity
     guid: 30a36821b48177c43b21600ba0485f04
   - enabled: 1
-    path: Assets/Scenes/Corridor.unity
+    path: Assets/Scenes/Hall 2B.unity
     guid: 246968401176d294b84c0716a327adcc
+  - enabled: 1
+    path: Assets/Scenes/Corridor.unity
+    guid: 71a57058227693a4db3bf08d91c96de2
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4eff889d37aef414b83309ddebded8a4,
       type: 2}

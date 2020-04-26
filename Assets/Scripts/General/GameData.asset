@@ -12,16 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f793d1fac13a0d45a7b1a38958d2065, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  playerDeaths: 1
-  enemyKills: 4
+  playerDeaths: 3
+  enemyKills: 3
   texts:
   - text: "Ol\xE1 meu docinho de coco, como vai a vida???"
     messageType: 1
-  - text: "Oi cheiro, to pegando aquele diamante\r pra minha linda :)"
+  - text: Oi cheiro, to pegando aquele diamante pra minha linda :)
     messageType: 0
-  - text: "Ah que beleza, mal posso esperar\r pela tainha e o vinho ;*"
+  - text: Ah que beleza, mal posso esperar pela tainha e o vinho ;*
     messageType: 1
-  - text: "Ol\xE1 meu docinho de coco, como vai a vida???"
+  - text: "Esse banco \xE9 um labirinto sem fim, tenho mapa dele aqui, vou te ajudar
+      no que puder"
     messageType: 1
-  goodGuyAnswers: 1
-  badGuyAnswers: 17
+  - text: "N\xE3o faz mais que obriga\xE7\xE3o"
+    messageType: 0
+  - text: "Teu c\xFA, vai sendo idiota que te deixo preso nessa merda!"
+    messageType: 1
+  - text: Querido, depois de passar pelo hall, pegue a porta da ponta superior direita
+      ok?
+    messageType: 1
+  - text: "Seu pedido \xE9 uma ordem"
+    messageType: 0
+  - text: Cuidado com os guardas, eles foram treinados em zanzibar!
+    messageType: 1
+  - text: "Olhe bem a sua volta. Atalhos s\xE3o bem-vindos!"
+    messageType: 1
+  - text: "Sempre s\xE3o bem-vindos :)"
+    messageType: 0
+  - text: Se cuida!
+    messageType: 1
+  goodGuyAnswers: 3
+  badGuyAnswers: 1
