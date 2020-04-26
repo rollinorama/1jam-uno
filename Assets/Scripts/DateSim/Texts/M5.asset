@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: M5
   m_EditorClassIdentifier: 
-  textMessage: "Estou com uma fome, acho que vou pedir\r uma pizza de cora\xE7\xE3o
-    com batata palha\r"
+  textMessage: "Estou com uma fome, acho que vou pedir uma pizza de cora\xE7\xE3o
+    com batata palha"
   answers:
   - {fileID: 11400000, guid: 80c846bc82b018a42b31bf35cb48faca, type: 2}
   - {fileID: 11400000, guid: 27a15b014d5ad074fb3960b06bc00363, type: 2}

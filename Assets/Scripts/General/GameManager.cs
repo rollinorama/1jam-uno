@@ -41,11 +41,6 @@ namespace SG
             }
         }
 
-        private void Init()
-        {
-
-        }
-
         public void LoadNextScene(Transform endWaypoint)
         {
             if (endWaypoint.name == "EndWaypointBack")

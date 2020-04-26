@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: R12
   m_EditorClassIdentifier: 
-  textMessage: "Cansada das tuas grosserias, o Oswaldo n\xE3o era assim\r"
+  textMessage: "Cansada das tuas grosserias, o Oswaldo n\xE3o era assim"
   answers: []
   _image: {fileID: 0}

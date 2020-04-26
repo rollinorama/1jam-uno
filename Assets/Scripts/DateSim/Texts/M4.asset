@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: M4
   m_EditorClassIdentifier: 
-  textMessage: "Olhe bem a sua volta. Atalhos s\xE3o bem-vindos!\r"
+  textMessage: "Olhe bem a sua volta. Atalhos s\xE3o bem-vindos!"
   answers:
   - {fileID: 11400000, guid: e0c5c31c8a9510e4ea0658529ce1cbdc, type: 2}
   - {fileID: 11400000, guid: 2cf83afb6d567bf4691815f096d95279, type: 2}

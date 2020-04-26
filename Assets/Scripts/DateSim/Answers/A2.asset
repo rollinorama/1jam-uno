@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: A2
   m_EditorClassIdentifier: 
   answerText: To Ocupado
-  trueAnswerText: "To ocupado, roubando aquele diamante\r que voc\xEA me pediu"
+  trueAnswerText: "To ocupado, roubando aquele diamante que voc\xEA me pediu"
   textPath: {fileID: 11400000, guid: 4cd572cb5e95fc647ae181f24aa3572f, type: 2}
   goodAnswer: 0

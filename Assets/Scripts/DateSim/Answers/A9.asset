@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: A9
   m_EditorClassIdentifier: 
   answerText: "Acho v\xE1lido"
-  trueAnswerText: "Acho v\xE1lido, afinal, saco vazio\r n\xE3o para em p\xE9"
+  trueAnswerText: "Acho v\xE1lido, afinal, saco vazio n\xE3o para em p\xE9"
   textPath: {fileID: 11400000, guid: 70e7f86b686d8ae40ada6ebedb9b6337, type: 2}
   goodAnswer: 1

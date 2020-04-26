@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: A15
   m_EditorClassIdentifier: 
   answerText: Farei
-  trueAnswerText: "Ok morang\xE3o, se puder n\xE3o me mandar\r msg por enquanto ent\xE3o,
+  trueAnswerText: "Ok morang\xE3o, se puder n\xE3o me mandar msg por enquanto ent\xE3o,
     agrade\xE7o :)"
   textPath: {fileID: 11400000, guid: 1b37e1c67de827f4f89518010435b30c, type: 2}
   goodAnswer: 1

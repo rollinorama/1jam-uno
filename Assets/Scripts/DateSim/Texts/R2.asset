@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: R2
   m_EditorClassIdentifier: 
-  textMessage: "Que grosso, se eu pudesse pegava eu mesma :(\r"
+  textMessage: Que grosso, se eu pudesse pegava eu mesma :(
   answers: []
+  _image: {fileID: 0}

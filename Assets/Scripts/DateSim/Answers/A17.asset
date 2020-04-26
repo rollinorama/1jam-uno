@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: A17
   m_EditorClassIdentifier: 
   answerText: Ok
-  trueAnswerText: "Ok meu bem, falou que n\xE3o ia\r mandar mensagem, lembra? hahaha\r"
+  trueAnswerText: "Ok meu bem, falou que n\xE3o ia mandar mensagem, lembra? hahaha"
   textPath: {fileID: 11400000, guid: 698a98db2b7a30e40a73b242e0cbf8c3, type: 2}
   goodAnswer: 1

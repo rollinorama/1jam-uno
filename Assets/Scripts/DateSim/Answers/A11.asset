@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: A11
   m_EditorClassIdentifier: 
   answerText: Manda nude
-  trueAnswerText: "Que tristeza, manda nude\r pra eu me animar :)"
+  trueAnswerText: Que tristeza, manda nude pra eu me animar :)
   textPath: {fileID: 11400000, guid: 6d97330d0774c0d45883d00da60b4b0b, type: 2}
   goodAnswer: 1

@@ -23,6 +23,9 @@ namespace SG
             playerDeaths = 0;
             enemyKills = 0;
             texts.Clear();
+            goodGuyAnswers = 0;
+            badGuyAnswers = 0;
+            StartScene();
         }
 
         public void StartScene()
@@ -35,8 +38,6 @@ namespace SG
 
         public void RestartScene()
         {
-            Debug.Log(texts.Count);
-            Debug.Log(_tempTexts.Count);
             enemyKills = _tempEnemyKills;
             texts = new List<MessageText>(_tempTexts);
             goodGuyAnswers = _tempGoodGuyAnswers;

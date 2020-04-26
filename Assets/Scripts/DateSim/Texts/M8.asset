@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: M8
   m_EditorClassIdentifier: 
-  textMessage: "Meu amor, essa sala \xE9 tensa, fa\xE7a tudo bem\r concentradinho,
-    te amo\r ;*"
+  textMessage: "Meu amor, essa sala \xE9 tensa, fa\xE7a tudo bem concentradinho,
+    te amo ;*"
   answers:
   - {fileID: 11400000, guid: 2274ba6e947d4b644bffc75b755c1c0d, type: 2}
   - {fileID: 11400000, guid: c9533985793905844a8343eba084b1f7, type: 2}

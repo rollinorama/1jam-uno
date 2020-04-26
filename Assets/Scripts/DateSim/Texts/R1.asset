@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: R1
   m_EditorClassIdentifier: 
-  textMessage: "Ah que beleza, mal posso esperar\r pela tainha e o vinho ;*"
+  textMessage: Ah que beleza, mal posso esperar pela tainha e o vinho ;*
   answers: []
+  _image: {fileID: 0}

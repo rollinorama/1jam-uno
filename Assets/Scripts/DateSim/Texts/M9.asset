@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: M9
   m_EditorClassIdentifier: 
-  textMessage: "Amor, vou l\xE1 buscar a pizza ok?\r Se precisar de mim, d\xEA um
-    toque!"
+  textMessage: "Amor, vou l\xE1 buscar a pizza ok? Se precisar de mim, d\xEA um toque!"
   answers:
   - {fileID: 11400000, guid: b81b2d87ca0945c4f8f03ab090cdb1c6, type: 2}
   - {fileID: 11400000, guid: e4ccaaad5dd52fa458da6bb97d6c43c7, type: 2}

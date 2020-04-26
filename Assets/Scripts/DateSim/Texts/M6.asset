@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: M6
   m_EditorClassIdentifier: 
-  textMessage: "Nesse banco tem guardas do lado de fora,\r eles acertam pra matar\r"
+  textMessage: Nesse banco tem guardas do lado de fora, eles acertam pra matar
   answers:
   - {fileID: 11400000, guid: 5277fd0252853894e9d62cc922632994, type: 2}
   - {fileID: 11400000, guid: 2a5bf164d23e9d747b819606c9408f69, type: 2}
