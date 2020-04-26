@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a3bcaf15277ddf419613f1ea054fb9e, type: 3}
-  m_Name: A1
+  m_Name: A15
   m_EditorClassIdentifier: 
-  answerText: Oi Amor
-  trueAnswerText: "Oi cheiro, to pegando aquele diamante\r pra minha linda :)"
-  textPath: {fileID: 11400000, guid: b98554758b9046f47b2981df007788ec, type: 2}
+  answerText: Farei
+  trueAnswerText: "Ok morang\xE3o, se puder n\xE3o me mandar\r msg por enquanto ent\xE3o,
+    agrade\xE7o :)"
+  textPath: {fileID: 11400000, guid: 1b37e1c67de827f4f89518010435b30c, type: 2}
   goodAnswer: 1

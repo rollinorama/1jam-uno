@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
+  m_Name: M6
+  m_EditorClassIdentifier: 
+  textMessage: "Nesse banco tem guardas do lado de fora,\r eles acertam pra matar\r"
+  answers:
+  - {fileID: 11400000, guid: 5277fd0252853894e9d62cc922632994, type: 2}
+  - {fileID: 11400000, guid: 2a5bf164d23e9d747b819606c9408f69, type: 2}
+  _image: {fileID: 0}

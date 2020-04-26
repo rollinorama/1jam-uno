@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3bcaf15277ddf419613f1ea054fb9e, type: 3}
   m_Name: A2
   m_EditorClassIdentifier: 
-  answerText: Estou ocupado
-  trueAnswerText: "Estou meio ocupado, ser\xE1 que n\xE3o rola conversar depois?"
-  textPath: {fileID: 11400000, guid: 9e3cec25cb47e67449fb8c06b250625c, type: 2}
+  answerText: To Ocupado
+  trueAnswerText: "To ocupado, roubando aquele diamante\r que voc\xEA me pediu"
+  textPath: {fileID: 11400000, guid: 4cd572cb5e95fc647ae181f24aa3572f, type: 2}
+  goodAnswer: 0

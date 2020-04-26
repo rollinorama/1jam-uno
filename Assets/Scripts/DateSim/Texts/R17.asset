@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a3bcaf15277ddf419613f1ea054fb9e, type: 3}
-  m_Name: A1
+  m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
+  m_Name: R17
   m_EditorClassIdentifier: 
-  answerText: Oi Amor
-  trueAnswerText: "Oi cheiro, to pegando aquele diamante\r pra minha linda :)"
-  textPath: {fileID: 11400000, guid: b98554758b9046f47b2981df007788ec, type: 2}
-  goodAnswer: 1
+  textMessage: "Aaaah \xE9!!!! mil desculpas meu bem,\r n\xE3o mandarei mais :)"
+  answers: []
+  _image: {fileID: 0}

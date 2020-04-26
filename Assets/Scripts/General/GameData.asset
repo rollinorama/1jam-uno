@@ -15,11 +15,11 @@ MonoBehaviour:
   playerDeaths: 8
   enemyKills: 4
   texts:
-  - text: "Bom dia flor do dia! Como vai meu pedacinho de algod\xE3o doce?"
+  - text: "Ol\xE1 meu docinho de coco, como vai a vida???"
     messageType: 1
-  - text: "Ol\xE1 meu docinho de coco, como passou a noite? :)"
+  - text: "Oi cheiro, to pegando aquele diamante\r pra minha linda :)"
     messageType: 0
-  - text: "\xC9 mesmo??? Ent\xE3o v\xE1 a merda"
+  - text: "Ah que beleza, mal posso esperar\r pela tainha e o vinho ;*"
     messageType: 1
-  goodGuyAnswers: 0
-  badGuyAnswers: 16
+  goodGuyAnswers: 1
+  badGuyAnswers: 17

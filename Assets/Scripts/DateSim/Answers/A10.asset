@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
-  m_Name: T2
+  m_Script: {fileID: 11500000, guid: 1a3bcaf15277ddf419613f1ea054fb9e, type: 3}
+  m_Name: A10
   m_EditorClassIdentifier: 
-  textMessage: "\xC9 mesmo??? Ent\xE3o v\xE1 a merda"
-  answers: []
+  answerText: Dieta
+  trueAnswerText: E aquela dieta que estava fazendo?
+  textPath: {fileID: 11400000, guid: b5af5356b84475949bf69097240e6d9a, type: 2}
+  goodAnswer: 0

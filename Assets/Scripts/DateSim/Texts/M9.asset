@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
+  m_Name: M9
+  m_EditorClassIdentifier: 
+  textMessage: "Amor, vou l\xE1 buscar a pizza ok?\r Se precisar de mim, d\xEA um
+    toque!"
+  answers:
+  - {fileID: 11400000, guid: b81b2d87ca0945c4f8f03ab090cdb1c6, type: 2}
+  - {fileID: 11400000, guid: e4ccaaad5dd52fa458da6bb97d6c43c7, type: 2}
+  _image: {fileID: 0}

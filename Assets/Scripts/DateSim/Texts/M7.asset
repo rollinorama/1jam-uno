@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
-  m_Name: T1
+  m_Name: M7
   m_EditorClassIdentifier: 
-  textMessage: "Bom dia flor do dia! Como vai meu pedacinho de algod\xE3o doce?"
+  textMessage: "Se n\xE3o me engano a porta est\xE1 perto de dois vasos"
   answers:
-  - {fileID: 11400000, guid: b61cbb33f9392fa44817d1ffe4d2d222, type: 2}
-  - {fileID: 11400000, guid: 9c737c172361317428f24d1002c5d7be, type: 2}
-  messageActionType: 0
+  - {fileID: 11400000, guid: a230c6e6d6d56164e8f9951c18f8f4c4, type: 2}
+  - {fileID: 11400000, guid: 8a9bde912630a464386743c8ea02bab5, type: 2}
+  _image: {fileID: 0}
