@@ -173,6 +173,21 @@ PrefabInstance:
       propertyPath: m_PointLightInnerRadius
       value: 12.5
       objectReference: {fileID: 0}
+    - target: {fileID: 258374878665692887, guid: d62f62a7ea420af4facdb439aafc4923,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 258374878665692887, guid: d62f62a7ea420af4facdb439aafc4923,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 258374878665692887, guid: d62f62a7ea420af4facdb439aafc4923,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.9254902
+      objectReference: {fileID: 0}
     - target: {fileID: 258374878665692904, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -236,7 +251,7 @@ PrefabInstance:
     - target: {fileID: 258374878665692905, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
       propertyPath: viewRadius
-      value: 31.59
+      value: 22.61
       objectReference: {fileID: 0}
     - target: {fileID: 258374878665692905, guid: d62f62a7ea420af4facdb439aafc4923,
         type: 3}
