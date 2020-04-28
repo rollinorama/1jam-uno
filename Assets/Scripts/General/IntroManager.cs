@@ -1,13 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace SG
 {
-    public class IntroEndManager : MonoBehaviour
+    public class IntroManager : MonoBehaviour
     {
-        [SerializeField] public GameData _data;
+        [SerializeField] GameData _data;
         [SerializeField] GameObject[] _introImages;
         [SerializeField] GameObject[] _introTexts;
 
@@ -21,7 +20,7 @@ namespace SG
 
         private void Start()
         {
-            _data.StartGame();
+           _data.StartGame();
         }
 
         private void Update() // REFATORAR TUDO!!!
@@ -44,7 +43,8 @@ namespace SG
             _introTexts[actualIndex].SetActive(false);
             actualIndex++;
             _introImages[actualIndex].SetActive(true);
-           _introTexts[actualIndex].SetActive(true);
+            _introTexts[actualIndex].SetActive(true);
         }
+
     }
 }

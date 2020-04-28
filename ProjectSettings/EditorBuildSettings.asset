@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
-    guid: e57b104773f6cef47ab3c64c5010eaeb
+    path: Assets/Scenes/Introduction.unity
+    guid: 24511dfe61d76d24ab4338b546432a62
   - enabled: 1
     path: Assets/Scenes/Main Hall.unity
     guid: 30a36821b48177c43b21600ba0485f04
@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Snipers Center.unity
     guid: a82178dd7673adf479d83ff7e634231b
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: e57b104773f6cef47ab3c64c5010eaeb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4eff889d37aef414b83309ddebded8a4,
       type: 2}
