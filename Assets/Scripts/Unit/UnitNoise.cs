@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using SG.DateSim;
 
 namespace SG.Unit
 {
@@ -13,12 +14,14 @@ namespace SG.Unit
         [SerializeField] LayerMask _enemyMask;
 
         private ParticleSystem _noiseParticles;
+        private CellPhone _cellphone;
 
         private bool _makingNoise;
 
         private void Awake()
         {
             _noiseParticles = GetComponent<ParticleSystem>();
+            _cellphone = FindObjectOfType<CellPhone>();
         }
 
         private void Start()
@@ -42,20 +45,22 @@ namespace SG.Unit
 
         private IEnumerator Co_Pulse()
         {
-            var em = _noiseParticles.emission;
-            em.enabled = true;
-            _makingNoise = true;
-            Debug.Log("NOISE!!");
-            yield return new WaitForSeconds(_noiseTime);
-            em.enabled = false;
-            _makingNoise = false;
+            if (!_cellphone.openedPhone)
+            {
+                var em = _noiseParticles.emission;
+                em.enabled = true;
+                _makingNoise = true;
+                yield return new WaitForSeconds(_noiseTime);
+                em.enabled = false;
+                _makingNoise = false;
+            }
         }
 
         private void FixedUpdate()
         {
             if (_makingNoise)
             {
-                if(Physics2D.OverlapCircleAll(transform.position, _noiseRadius, _enemyMask).Length > 0)
+                if (Physics2D.OverlapCircleAll(transform.position, _noiseRadius, _enemyMask).Length > 0)
                 {
                     NoiseEvent(transform.parent);
                 }

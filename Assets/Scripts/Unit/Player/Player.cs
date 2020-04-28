@@ -18,6 +18,7 @@ namespace SG.Unit
         private UnitCombat _combat;
         private UnitGrab _grab;
         private UnitNoise _noise;
+        private Animator _animator;
         private UnitTeleport _teleport;
         private CellPhone _cellPhone;
 
@@ -38,6 +39,7 @@ namespace SG.Unit
             _combat = GetComponentInChildren<UnitCombat>();
             _grab = GetComponent<UnitGrab>();
             _noise = GetComponentInChildren<UnitNoise>();
+            _animator = GetComponentInChildren<Animator>();
             _teleport = GetComponent<UnitTeleport>();
             _cellPhone = FindObjectOfType<CellPhone>();
 
@@ -73,7 +75,6 @@ namespace SG.Unit
             }
         }
 
-
         public void Move()
         {
             _move.ShouldMove();
@@ -96,6 +97,7 @@ namespace SG.Unit
 
         public void OpenClosePhone()
         {
+            _animator.SetBool("isOnPhone", !_cellPhone.openedPhone);
             _cellPhone.OpenClosePhone();
         }
 

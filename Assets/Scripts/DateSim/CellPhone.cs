@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-
+using SG.Unit;
 
 namespace SG.DateSim
 {
@@ -13,6 +13,7 @@ namespace SG.DateSim
         
         [SerializeField] float _timeDelayRing;
         [SerializeField] Animator _uiFog;
+        [SerializeField] GameObject _messageCounter;
 
         private DateSimText _actualDateSimText;
         private MessagesPanel _messagesBoard;
@@ -55,6 +56,7 @@ namespace SG.DateSim
         {
             RingEvent();
             _messagesBoard.ReceiveMessage(_actualDateSimText);
+            _messageCounter.SetActive(true);
         }
 
         public void OpenClosePhone()
@@ -73,6 +75,7 @@ namespace SG.DateSim
                 _animator.SetTrigger("setOpen");
                 _uiFog.SetTrigger("setOpen");
                 OpenEvent();
+                _messageCounter.SetActive(false);
             }
         }
 

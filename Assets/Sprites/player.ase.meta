@@ -41,5 +41,8 @@ ScriptedImporter:
   - animationName: Dead
     loopTime: 1
     about: "Animation Type:\tForward\r\nAnimation:\tFrom: 31; To: 31"
+  - animationName: OnPhone
+    loopTime: 1
+    about: "Animation Type:\tForward\r\nAnimation:\tFrom: 32; To: 38"
   atlas: {instanceID: 0}
   importType: 0
