@@ -41,7 +41,7 @@ namespace SG
             }
         }
 
-        public void LoadNextScene(Transform endWaypoint)
+        public void LoadNextScene(Transform endWaypoint = null)
         {
             if (endWaypoint.name == "EndWaypointBack")
                 StartCoroutine(Co_LoadScene(_actualScene.buildIndex));
