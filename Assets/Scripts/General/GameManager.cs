@@ -21,18 +21,21 @@ namespace SG
 
         private Player _player;
         private Scene _actualScene;
+        private MusicBGManager _musicBGManager;
 
         private void Awake()
         {
             _player = FindObjectOfType<Player>();
             _actualScene = SceneManager.GetActiveScene();
+            _musicBGManager = FindObjectOfType<MusicBGManager>();
         }
 
         private void Start()
         {
             _player.transform.position = _startWaypoint.position;
             _levelName.text = _actualScene.name.ToString();
-            if (_actualScene.buildIndex == 0 && _data.playerDeaths == 0)
+            _musicBGManager.StopAudio();
+            if (_actualScene.buildIndex == 0)
                 _data.StartGame();
             else
             {

@@ -15,9 +15,12 @@ namespace SG.DateSim
         [SerializeField] GameObject _answerPrefab;
         [SerializeField] Sprite _selectedAnswerSprite;
         [SerializeField] Sprite _unselectedAnswerSprite;
+        [SerializeField] AudioClip _audioAnswer;
+
 
         private GameManager _gameManager;
         private CellPhone _cellPhone;
+        private AudioSource _audioSource;
 
         private List<Answer> _answers = new List<Answer>();
         private List<GameObject> _answersGM = new List<GameObject>();
@@ -27,6 +30,7 @@ namespace SG.DateSim
         {
             _gameManager = FindObjectOfType<GameManager>();
             _cellPhone = GetComponentInParent<CellPhone>();
+            _audioSource = GetComponentInParent<AudioSource>();
 
             _cellPhone.OpenEvent += NavigateToFirstAnswer;
         }
@@ -65,6 +69,7 @@ namespace SG.DateSim
         {
             _gameManager.SetAnswerType(_answers[_selectedAnswerIndex].goodAnswer);
             SendMessage(_answers[_selectedAnswerIndex]);
+            _audioSource.PlayOneShot(_audioAnswer);
             ClearAnswers();
         }
 

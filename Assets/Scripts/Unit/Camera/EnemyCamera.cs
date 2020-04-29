@@ -14,6 +14,8 @@ namespace SG.Unit
 
         private Light2D _light2D;
         private UnitFieldOfView _fieldOfView;
+        private MusicBGManager _musicBGManager;
+
 
         private int _actualWaypointIndex = 0;
         private Transform _actualWaypoint;
@@ -24,6 +26,7 @@ namespace SG.Unit
 
         private void Awake()
         {
+            _musicBGManager = FindObjectOfType<MusicBGManager>();
             _light2D = GetComponentInChildren<Light2D>();
             _fieldOfView = GetComponentInChildren<UnitFieldOfView>();
         }
@@ -78,6 +81,7 @@ namespace SG.Unit
             if (_fieldOfView.visibleTargets.Count > 0)
             {
                 SetCameraAction();
+
             }
             else
             {
@@ -89,20 +93,17 @@ namespace SG.Unit
         private void SetCameraAction()
         {
             _light2D.color = Color.red;
+            _musicBGManager.PlayAudio();
+
             Transform player = FindObjectOfType<Player>().transform;
-            
+
             if (_fieldOfView.visibleTargets[0].CompareTag("Player")) // Refatorar
             {
-                Debug.Log("SetCameraAction");
                 EnemyStateMachine[] enemies = FindObjectsOfType<EnemyStateMachine>();
                 foreach (EnemyStateMachine enemy in enemies)
                 {
                     enemy.AttackByAlarm(player);
                 }
-            }
-            else
-            {
-                Debug.Log("GameOver");
             }
         }
     }

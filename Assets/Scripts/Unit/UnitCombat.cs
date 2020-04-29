@@ -7,6 +7,8 @@ namespace SG.Unit
     {
         public event Action DeathEvent;
 
+        [SerializeField] AudioClip _audioAttack;
+        [SerializeField] AudioClip _audioDeath;
         [SerializeField] LayerMask enemyLayers;
         [SerializeField] float _attackRange;
         [SerializeField] float _attackLeftPosition;
@@ -14,12 +16,14 @@ namespace SG.Unit
         [SerializeField] float _shakeDuration = 0.3f;
         [SerializeField] float _shakeIntensity = 0.9f;
 
+        private AudioSource _audioSource;
         private IUnit _unit;
         private Animator _animator;
         private MainCamera _camera;
 
         private void Awake()
         {
+            _audioSource = GetComponent<AudioSource>();
             _unit = GetComponentInParent<IUnit>();
             _animator = transform.parent.GetComponentInChildren<Animator>();
             _camera = FindObjectOfType<MainCamera>();
@@ -31,6 +35,7 @@ namespace SG.Unit
             _camera.ShakeCamera(_shakeDuration, _shakeIntensity);
             if (_unit.Health <= 0 && DeathEvent != null)
             {
+                _audioSource.PlayOneShot(_audioDeath);
                 _animator.SetBool("isDead", true);
                 DeathEvent();
             }
@@ -39,6 +44,7 @@ namespace SG.Unit
         public void ShouldAttack()
         {
             _animator.SetTrigger("isAttacking");
+            _audioSource.PlayOneShot(_audioAttack);
             float positionX = _animator.transform.localScale.x > 0 ? transform.position.x + _attackRightPosition : transform.position.x + _attackLeftPosition;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(positionX, transform.position.y), _attackRange, enemyLayers);
 
