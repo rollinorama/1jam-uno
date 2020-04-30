@@ -816,7 +816,7 @@ MonoBehaviour:
   _audioOpenClose: {fileID: 8300000, guid: 50262ebe78f477c47b98538754132a78, type: 3}
   _timeDelayRing: 3
   _uiFog: {fileID: 0}
-  _messageCounter: {fileID: 7593961866458052344}
+  _messageCounter: {fileID: 3110837852371437346}
   _answersBoard: {fileID: 0}
   openedPhone: 0
 --- !u!95 &1728835300
@@ -1031,7 +1031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4581061251132440431}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: messageCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

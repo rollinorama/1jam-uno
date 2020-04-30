@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f793d1fac13a0d45a7b1a38958d2065, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  playerDeaths: 23
-  enemyKills: 11
-  texts: []
-  goodGuyAnswers: 34
-  badGuyAnswers: 20
+  playerDeaths: 0
+  enemyKills: 0
+  texts:
+  - text: "Ol\xE1 meu docinho de coco, como vai a vida???"
+    messageType: 1
+  - text: "Ol\xE1 meu docinho de coco, como vai a vida???"
+    messageType: 1
+  - text: "Ol\xE1 meu docinho de coco, como vai a vida???"
+    messageType: 1
+  - text: "Ol\xE1 meu docinho de coco, como vai a vida???"
+    messageType: 1
+  goodGuyAnswers: 0
+  badGuyAnswers: 0
