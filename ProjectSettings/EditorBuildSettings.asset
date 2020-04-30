@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Start Game.unity
+    guid: b0488eba4be68e645bf9dd509f0a07df
+  - enabled: 1
     path: Assets/Scenes/Introduction.unity
     guid: 24511dfe61d76d24ab4338b546432a62
   - enabled: 1
@@ -20,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Snipers Center.unity
     guid: a82178dd7673adf479d83ff7e634231b
+  - enabled: 1
+    path: Assets/Scenes/Final Stage.unity
+    guid: 9e9623931c1562346ac7efb193b5bcbb
+  - enabled: 1
+    path: Assets/Scenes/Diamond Room.unity
+    guid: a0175d86cf94add44955324f146564a5
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: e57b104773f6cef47ab3c64c5010eaeb

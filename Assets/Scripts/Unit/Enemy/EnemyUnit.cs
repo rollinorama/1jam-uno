@@ -31,6 +31,7 @@ namespace SG.Unit
         private bool _waitToWalk = false;
         private bool _isWalking = false;
 
+        private bool _facingRight = true;
         public bool FacingRight { get; set; }
         public float Health { get; set; }
         public float Damage { get; set; }
@@ -64,7 +65,6 @@ namespace SG.Unit
 
         private void InitStates()
         {
-            FacingRight = _unitState._facingRight;
             Health = _unitState._health;
             Damage = _unitState._damage;
         }
@@ -179,16 +179,16 @@ namespace SG.Unit
         private void Flip(float directionX)
         {
             Debug.Log(directionX);
-            Debug.Log(FacingRight);
-            if (directionX < 0 && FacingRight)
-            {
-                transform.GetChild(0).localScale = new Vector2(1f, transform.localScale.y);
-                FacingRight = false;
-            }
-            else if (directionX > 0 && !FacingRight)
+            Debug.Log(_facingRight);
+            if (directionX < 0 && _facingRight)
             {
                 transform.GetChild(0).localScale = new Vector2(-1f, transform.localScale.y);
-                FacingRight = true;
+                _facingRight = false;
+            }
+            else if (directionX > 0 && !_facingRight)
+            {
+                transform.GetChild(0).localScale = new Vector2(1f, transform.localScale.y);
+                _facingRight = true;
             }
         }
 
