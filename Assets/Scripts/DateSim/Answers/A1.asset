@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: A1
   m_EditorClassIdentifier: 
   answerText: Oi Amor
-  trueAnswerText: Oi cheiro, to pegando aquele diamante pra minha linda :)
+  trueAnswerText: "Oi cheiro, to pegando aquela alian\xE7a para minha linda :)"
   textPath: {fileID: 11400000, guid: b98554758b9046f47b2981df007788ec, type: 2}
   goodAnswer: 1

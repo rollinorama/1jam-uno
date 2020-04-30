@@ -615,7 +615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 66.170105, y: 0}
+  m_AnchoredPosition: {x: 66.16992, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: -1.16, y: 0}
 --- !u!95 &746624574
@@ -1657,32 +1657,43 @@ PrefabInstance:
     - target: {fileID: 3108991930431369900, guid: 9ff9f6feedc0f20428beeabad5940af7,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3108991930431369900, guid: 9ff9f6feedc0f20428beeabad5940af7,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3108991930431369900, guid: 9ff9f6feedc0f20428beeabad5940af7,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3108991930431369900, guid: 9ff9f6feedc0f20428beeabad5940af7,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3108991930431369900, guid: 9ff9f6feedc0f20428beeabad5940af7,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3108991930431369900, guid: 9ff9f6feedc0f20428beeabad5940af7,
         type: 3}
       propertyPath: m_textInfo.materialCount
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108991930431369900, guid: 9ff9f6feedc0f20428beeabad5940af7,
+        type: 3}
+      propertyPath: m_text
+      value: "Sim, mas quero usar aquela alian\xE7a que vimos no cofre do banco outro
+        dia"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108991930431369900, guid: 9ff9f6feedc0f20428beeabad5940af7,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3108991930644613202, guid: 9ff9f6feedc0f20428beeabad5940af7,
         type: 3}
