@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: R11
   m_EditorClassIdentifier: 
-  textMessage: Nude
+  textMessage: "Meu 3G est\xE1 muito ruim pra enviar imagem :)"
   answers: []
   _image: {fileID: 0}

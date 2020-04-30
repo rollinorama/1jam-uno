@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3bcaf15277ddf419613f1ea054fb9e, type: 3}
   m_Name: A14
   m_EditorClassIdentifier: 
-  answerText: WTF
-  trueAnswerText: Que bela dica, que me ver morto?!?!
+  answerText: Elegante
+  trueAnswerText: "Sei que um deles \xE9 elegante"
   textPath: {fileID: 11400000, guid: 2a4688b1d890a3047ad6301242668f73, type: 2}
-  goodAnswer: 0
+  goodAnswer: 1

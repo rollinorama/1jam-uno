@@ -12,12 +12,14 @@ namespace SG.Unit
 
         private Player _player;
         private PlayerUI _playerUI;
+        private UnitGrab _playerGrab;
         private Collider2D _teleportable;
 
         private void Awake()
         {
             _player = GetComponent<Player>();
             _playerUI = GetComponentInChildren<PlayerUI>();
+            _playerGrab = GetComponent<UnitGrab>();
         }
 
         private void Start()
@@ -46,6 +48,7 @@ namespace SG.Unit
 
         public void CheckTeleport()
         {
+            _playerGrab.StartCheckGrab();
             StartCoroutine(Co_CheckTeleport());
         }
 

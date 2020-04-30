@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92e5aafdb434c9468df88fa9fb43680, type: 3}
   m_Name: M7
   m_EditorClassIdentifier: 
-  textMessage: "Se n\xE3o me engano a porta est\xE1 perto de dois vasos"
+  textMessage: "Amor, qual a diferen\xE7a entre o charme e o funk?"
   answers:
   - {fileID: 11400000, guid: a230c6e6d6d56164e8f9951c18f8f4c4, type: 2}
   - {fileID: 11400000, guid: 8a9bde912630a464386743c8ea02bab5, type: 2}

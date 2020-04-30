@@ -26,6 +26,11 @@ namespace SG.Unit
 
         private void Start()
         {
+            StartCheckGrab();
+        }
+
+        public void StartCheckGrab()
+        {
             StartCoroutine(Co_CheckGrab());
         }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3bcaf15277ddf419613f1ea054fb9e, type: 3}
   m_Name: A13
   m_EditorClassIdentifier: 
-  answerText: Procurarei!
-  trueAnswerText: "Ok, vou tentar achar meu bem, j\xE1 est\xE1 perto?"
+  answerText: Bonito
+  trueAnswerText: Um anda bonito...?
   textPath: {fileID: 11400000, guid: 2d6f529472ea63144a31de0c591c4c5d, type: 2}
   goodAnswer: 1
