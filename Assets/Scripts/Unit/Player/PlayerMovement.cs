@@ -10,6 +10,7 @@ namespace SG.Unit
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] AudioClip _audioMovement;
+        [SerializeField] ParticleSystem _dust;
         private Player _unit;
         private Animator _animator;
         private Light2D _light2D;
@@ -75,12 +76,19 @@ namespace SG.Unit
             {
                 transform.GetChild(0).localScale = new Vector2(-1f, transform.localScale.y);
                 _unit.FacingRight = false;
+                CreateDust();
             }
             else if (_unit.InputMovement.x > 0 && !_unit.FacingRight)
             {
                 transform.GetChild(0).localScale = new Vector2(1f, transform.localScale.y);
                 _unit.FacingRight = true;
+                CreateDust();
             }
+        }
+
+        private void CreateDust()
+        {
+            _dust.Play();
         }
     }
 }
