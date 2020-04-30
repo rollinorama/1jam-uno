@@ -15,7 +15,6 @@ namespace SG.DateSim
         {
             if (other.CompareTag("Player") &&  !loaded)
             {
-                Debug.Log("ring ring");
                 StartCoroutine(Co_CheckRinging());
             }
         }

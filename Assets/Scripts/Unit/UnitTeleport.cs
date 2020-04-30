@@ -34,7 +34,6 @@ namespace SG.Unit
                 _teleportable = teleport;
                 if(teleport != null)
                 {
-                    Debug.Log(teleport.name);
                     _playerUI.OpenUI("Z", "Esgueirar", PlayerUIButtonType.Sewer);
                 }
                 else

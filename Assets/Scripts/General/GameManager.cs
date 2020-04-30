@@ -82,11 +82,6 @@ namespace SG
         {
             MessageText messageText = new MessageText(text, messageType);
             _data.texts.Add(messageText);
-            for (int i = 0; i < _data.texts.Count; i++)
-            {
-                Debug.Log(_data.texts[i]);
-
-            }
         }
     }
 

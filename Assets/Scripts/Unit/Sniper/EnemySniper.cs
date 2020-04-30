@@ -98,7 +98,7 @@ namespace SG.Unit
             }
             else
             {
-                Debug.Log("GameOver");
+                //Debug.Log("GameOver");
             }
         }
     }

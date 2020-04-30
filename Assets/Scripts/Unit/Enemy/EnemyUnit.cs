@@ -178,8 +178,6 @@ namespace SG.Unit
         //REFATORAR!!!!
         private void Flip(float directionX)
         {
-            Debug.Log(directionX);
-            Debug.Log(_facingRight);
             if (directionX < 0 && _facingRight)
             {
                 transform.GetChild(0).localScale = new Vector2(-1f, transform.localScale.y);
