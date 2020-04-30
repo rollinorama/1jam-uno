@@ -9,6 +9,7 @@ namespace SG.Unit
         private float WalkingSpeed { get; set; }
         Vector2[] _path;
         int _targetIndex;
+        public bool unitDead = false;
 
         public void RequestPath(Transform target, float walkingSpeed)
         {
@@ -26,12 +27,12 @@ namespace SG.Unit
             }
         }
 
-        private IEnumerator FollowPath()
+        public IEnumerator FollowPath()
         {
             _targetIndex = 0;
             Vector3 currentWaypoint = _path[0];
 
-            while (true)
+            while (!unitDead)
             {
                 if (transform.position == currentWaypoint)
                 {
@@ -45,6 +46,7 @@ namespace SG.Unit
                 transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, WalkingSpeed * Time.deltaTime);
                 yield return null;
             }
+            yield return null;
 
         }
 
